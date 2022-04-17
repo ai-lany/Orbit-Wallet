@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+}
+/* Box Shadow : */
+
+:root {
+    --shadow-color: 0deg 0% 72%;
+    --shadow-elevation-low:
+      0px 0.3px 0.4px hsl(var(--shadow-color) / 0.28),
+      0px 0.9px 1.1px -1.9px hsl(var(--shadow-color) / 0.37);
+    --shadow-elevation-medium:
+      0px 0.3px 0.4px hsl(var(--shadow-color) / 0.39),
+      0px 4.7px 5.7px -1.9px hsl(var(--shadow-color) / 0.51);
+    --shadow-elevation-high:
+      0px 0.3px 0.4px hsl(var(--shadow-color) / 0.36),
+      0px 3px 3.6px -0.6px hsl(var(--shadow-color) / 0.42),
+      0px 8px 9.7px -1.3px hsl(var(--shadow-color) / 0.48),
+      -0.1px 19.7px 23.9px -1.9px hsl(var(--shadow-color) / 0.53);
+  }
+.search{
+    padding: 1em;
+}
+
+
+#standard-search{
+    width: 15em;
+}
+
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.crypto-list{
+
+    justify-content: center;
+}
+
+.Widget{
+    background-color: rgb(252, 252, 252);
+    height: 30vh;
+    width: 20em;
+    border-radius: 8px;
+    
+    margin: 1em;
+    display: inline-block;
+    padding: 4px 8px;
+    box-shadow: var(--shadow-elevation-medium);
+}
+
+.List ul {
+    list-style-type: none;
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+    overflow: hidden;
+}
+
+hr{
+    margin: 1px 0 !important;
+}
+
+.widget-container{
+    display: inline-flex;
+}
+
+
+
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}
+
+.price{
+    display: inline;
+
+}
+
+.price-info td{
+    vertical-align: text-bottom;
+    line-height: 3.5em;
+}
+
+.change{
+    display: inline;
+}
+
+.coin-name{
+    
+    line-height: .5em;
+    position: relative;
+    top:.5em;
+}
+
+.Widget img{
+    position: relative;
+    bottom: 0.4em;
+    padding: 8px;
+}
