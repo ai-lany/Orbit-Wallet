@@ -1,60 +1,61 @@
-import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import React, { useEffect } from 'react';
+import Chart from 'chart.js/auto';
+import{ChartData, ChartArea} from 'chart.js'
 import { Line } from 'react-chartjs-2';
-import faker from 'faker';
+const { faker } = require('@faker-js/faker');
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top',
-    },
-    title: {
-      display: true,
-      text: 'Chart.js Line Chart',
-    },
-  },
-};
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      borderColor: 'rgb(255, 99, 132)',
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-    {
-      label: 'Dataset 2',
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      borderColor: 'rgb(53, 162, 235)',
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
-  ],
-};
 
 export function Graph() {
-  return <Line options={options} data={data} />;
+ 
+  const options = {
+    layout: {
+      padding: {
+        bottom: 20
+      }
+    },
+    responsive: true,
+    type: 'line',
+    scales: {
+      yAxes: {
+        display: false,
+        ticks: {
+          display: false
+        },
+        grid: {
+          display: false
+        }
+      },
+      xAxis: {
+        display: false,
+        ticks:{
+          display: false
+        },
+        grid: {
+          display: false
+        }
+      },
+    },
+    plugins: {
+      legend:{
+        display: false
+      },
+    }
+    
+  };
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: '',
+        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        borderColor: 'rgb(255, 99, 132)',
+        pointBackgroundColor: 'rgb(255, 99, 132)',
+     },
+    ],
+  };
+  
+  return <Line options={options} data={data}/>
 }
