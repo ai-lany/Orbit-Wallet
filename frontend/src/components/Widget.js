@@ -18,6 +18,7 @@ function Widget(props) {
         const icon = (response.data.image.small);
         const price = (response.data.market_data.current_price.usd);
         const change = (response.data.market_data.price_change_percentage_24h_in_currency.usd);
+        
         console.log(price);
         if (isMounted.current){
           setPrice(price);
@@ -57,7 +58,7 @@ function Widget(props) {
           </tr>
         </thead>
         </table>
-        <Graph></Graph>
+        <Graph id ={name} change = {change}></Graph>
       </div>
     </div>
   );

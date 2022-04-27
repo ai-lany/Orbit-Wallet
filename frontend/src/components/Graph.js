@@ -1,16 +1,66 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState} from 'react';
 import Chart from 'chart.js/auto';
 import{ChartData, ChartArea} from 'chart.js'
 import { Line } from 'react-chartjs-2';
+import axios from 'axios';
+import useIsMounted from '../useIsMounted';
 const { faker } = require('@faker-js/faker');
 
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const label = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 
-export function Graph() {
- 
+export function Graph(props) {
+  const isMounted = useIsMounted();
+  const [coinData, setCoinData] = useState([])
+  const [labels, setLabels] = useState([])
+
+  useEffect(() => {
+    if (isMounted.current){getInfo();}
+  },[]);
+
+  const formatData = coinData => {
+    return coinData.map(el => {
+      return{
+        time: el[0],
+        price: el[1]
+      }
+    })
+  }
+
+  const getInfo = () => {
+    axios.get("https://api.coingecko.com/api/v3/coins/" + (props.id).toLowerCase() + "/market_chart?vs_currency=usd&days=1")
+    .then(response => {
+        var dayChart = response.data.prices
+        if (isMounted.current){
+          setCoinData(dayChart)
+          const label = dayChart.map(function(x) {
+            return x[0];
+          });
+          setLabels(label)
+        }
+      })
+      .catch(error=> console.error('error: ' + error));
+    };
+
+
+  
+    /*const determineTimeFormat = () => {
+      switch (timeFormat) {
+        case "24h":
+          return day;
+        case "7d":
+          return week;
+        case "1y":
+          return year;
+        default:
+          return day;
+      }
+    };*/
   const options = {
+    animation:{
+      duration: 100
+    },
     layout: {
       padding: {
         bottom: 20
@@ -39,6 +89,22 @@ export function Graph() {
       },
     },
     plugins: {
+      tooltip:{
+        displayColors: false,
+        callbacks: {
+          label: function(context) {
+              let label = context.dataset.label || '';
+
+              if (label) {
+                  label += ': ';
+              }
+              if (context.parsed.y !== null) {
+                  label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
+              }
+              return label;
+          }
+      }
+      },
       legend:{
         display: false
       },
@@ -50,9 +116,13 @@ export function Graph() {
     datasets: [
       {
         label: '',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-        borderColor: 'rgb(255, 99, 132)',
-        pointBackgroundColor: 'rgb(255, 99, 132)',
+        data: coinData,
+        borderColor: '#99FF99',
+        pointBackgroundColor: '#99FF99',
+        pointRadius: 0,
+        outerGlowWidth: [5, 10, 15, 20, 25, 30, 0],
+			  outerGlowColor: 'rgb(255, 99, 132)',
+        tension: 0.4
      },
     ],
   };
