@@ -14,6 +14,13 @@ export function Graph(props) {
   const isMounted = useIsMounted();
   const [coinData, setCoinData] = useState([])
   const [labels, setLabels] = useState([])
+  const change = props.change;
+  var color;
+  if (change > 0){
+    color = "#52f268";
+  }else{
+    color = "#f25252";
+  }
 
   useEffect(() => {
     if (isMounted.current){getInfo();}
@@ -117,8 +124,8 @@ export function Graph(props) {
       {
         label: '',
         data: coinData,
-        borderColor: '#99FF99',
-        pointBackgroundColor: '#99FF99',
+        borderColor: color,
+        pointBackgroundColor: color,
         pointRadius: 0,
         outerGlowWidth: [5, 10, 15, 20, 25, 30, 0],
 			  outerGlowColor: 'rgb(255, 99, 132)',

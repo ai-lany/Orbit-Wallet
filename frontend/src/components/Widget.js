@@ -54,7 +54,7 @@ function Widget(props) {
           </tr>
           <tr className='price-info'>
             <td className=""><h3 className = 'price'>${price}</h3></td>
-            <td className=""><p id={idchange} className='change'>&ensp;{Math.round((change + Number.EPSILON) * 100) / 100}%</p></td>
+            <td className=""><p id={idchange} className='noselect change'>&ensp;{Math.round((change + Number.EPSILON) * 100) / 100}%</p></td>
           </tr>
         </thead>
         </table>

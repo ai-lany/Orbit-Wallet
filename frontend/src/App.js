@@ -4,6 +4,9 @@ import "./App.css";
 import CryptoList from "./components/CryptoList";
 import {Container} from 'react-bootstrap';
 import PizzaChart from "./components/Graph";
+import Dashboard from "./components/Dashboard";
+import Header from "./components/Header";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 function App() {
  
@@ -18,23 +21,14 @@ function App() {
 
   return (
     <div className="App">
-      <div className="search center">
-      <TextField
-          id="standard-search"
-          label="What are you looking for?"
-          type="search"
-          variant="outlined"
-          onChange={inputHandler}
-        />
-        
-    </div>
-    <div className="">
-    <CryptoList input = {inputText} />
-
-    </div>
-
-    </div>
-    
+      <Header></Header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<CryptoList input={inputText} />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </Router>
+    </div> //End of App
   );
 }
 

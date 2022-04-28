@@ -1,5 +1,8 @@
 *{
     margin: 0;
+    font-family: halyard-display,sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 /* Box Shadow : */
 
@@ -16,7 +19,17 @@
       0px 3px 3.6px -0.6px hsl(var(--shadow-color) / 0.42),
       0px 8px 9.7px -1.3px hsl(var(--shadow-color) / 0.48),
       -0.1px 19.7px 23.9px -1.9px hsl(var(--shadow-color) / 0.53);
-  }
+    }
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
 .search{
     padding: 1em;
 }
@@ -39,14 +52,14 @@
 
 .Widget{
     background-color: rgb(252, 252, 252);
-    height: 30vh;
+    height: 100%;
     width: 20em;
     border-radius: 8px;
-    
+    box-shadow: var(--shadow-elevation-medium);
     margin: 1em;
     display: inline-block;
     padding: 4px 8px;
-    box-shadow: var(--shadow-elevation-medium);
+    
 }
 
 .List ul {
@@ -66,14 +79,6 @@ hr{
 }
 
 
-
-.green{
-    color: green;
-}
-
-.red{
-    color: red;
-}
 
 .price{
     display: inline;
@@ -100,4 +105,46 @@ hr{
     position: relative;
     bottom: 0.4em;
     padding: 8px;
+}
+
+.navbar-brand{
+    padding: 0 1em;
+}
+
+.navbar-toggler{
+    border: none!important;
+}
+
+.navbar-toggler:focus .navbar-toggler:hover .navbar-toggler.active:focus{
+    outline: none !important;
+    box-shadow:none !important;
+}
+
+.navbar-collapse{
+    display: flex;
+    justify-content: center;
+    margin: auto!important;
+}
+
+.signup{
+    position: absolute;
+    right: 0;
+    padding: .4em 1em;
+}
+
+.dash-nav{
+    background: grey;
+    height: 100vh;
+}
+.dash-main{
+    background: lightblue;
+}
+
+ul{
+list-style: none;
+}
+
+.container{
+    border-radius: 8px;
+    box-shadow: var(--shadow-elevation-medium);
 }
