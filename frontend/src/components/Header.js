@@ -2,7 +2,6 @@ import "../App.css";
 import React, { useState, useEffect } from "react";
 import useIsMounted from "../useIsMounted";
 import { Navbar, Nav, Form, NavDropdown, Button} from "react-bootstrap";
-import TextField from "@mui/material/TextField";
 
 function Header(props) {
   return (
@@ -15,8 +14,8 @@ function Header(props) {
           <Nav.Link href="#link">Link</Nav.Link>
           <Form.Control type="text" placeholder="Search" />
           <div className="login-buttons">
-          <Button variant="outline-dark login">Log In</Button>
-          <Button variant="dark signup">Sign Up</Button>
+          <Button href="/login" variant="outline-dark login">Log In</Button>
+          <Button href="/signup" variant="dark signup">Sign Up</Button>
           </div>
           
         </Nav>

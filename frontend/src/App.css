@@ -162,3 +162,8 @@ list-style: none;
     position: absolute;
     right: 0;
 }
+
+.login-container{
+    max-width: 28vw;
+    padding: 1em;
+}
