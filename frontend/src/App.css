@@ -62,6 +62,10 @@
     
 }
 
+.btn{
+    margin: 0 .5em;
+}
+
 .List ul {
     list-style-type: none;
     columns: 3;
@@ -127,9 +131,14 @@ hr{
 }
 
 .signup{
-    position: absolute;
-    right: 0;
+    float:right;
+    width: 7em;
     padding: .4em 1em;
+}
+.login{
+    float:right;
+    width: 7em;
+    right: 0;
 }
 
 .dash-nav{
@@ -147,4 +156,9 @@ list-style: none;
 .container{
     border-radius: 8px;
     box-shadow: var(--shadow-elevation-medium);
+}
+
+.login-buttons{
+    position: absolute;
+    right: 0;
 }

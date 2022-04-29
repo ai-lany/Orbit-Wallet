@@ -14,8 +14,11 @@ function Header(props) {
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#link">Link</Nav.Link>
           <Form.Control type="text" placeholder="Search" />
-
-          <Button className="signup">Sign Up</Button>
+          <div className="login-buttons">
+          <Button variant="outline-dark login">Log In</Button>
+          <Button variant="dark signup">Sign Up</Button>
+          </div>
+          
         </Nav>
       </Navbar.Collapse>
     </Navbar>

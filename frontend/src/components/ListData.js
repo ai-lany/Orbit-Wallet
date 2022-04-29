@@ -60,4 +60,8 @@ export default [
     id: 18,
     name: "Tether",
   },
+  {
+      id: 19,
+      name: "Shiba-Inu"
+  }
 ];
