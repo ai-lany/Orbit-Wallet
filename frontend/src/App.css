@@ -63,7 +63,7 @@
 }
 
 .btn{
-    margin: 0 .5em;
+
 }
 
 .List ul {
@@ -131,14 +131,10 @@ hr{
 }
 
 .signup{
-    float:right;
     width: 7em;
-    padding: .4em 1em;
 }
 .login{
-    float:right;
     width: 7em;
-    right: 0;
 }
 
 .dash-nav{

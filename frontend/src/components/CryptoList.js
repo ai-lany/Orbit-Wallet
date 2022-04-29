@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react'
-import cryptoData from "./ListData.js"
+import cryptoData from "../data/ListData.js"
 import Widget from './Widget';
 import '../App.css';
 import axios from 'axios';

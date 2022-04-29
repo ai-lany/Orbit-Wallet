@@ -1,26 +1,35 @@
 import "../App.css";
 import React, { useState, useEffect } from "react";
 import useIsMounted from "../useIsMounted";
-import {Container,Button} from "react-bootstrap";
-import { TextField, FormGroup, FormControlLabel, Checkbox} from "@mui/material/";
-
-
+import { Container, Button, Form } from "react-bootstrap";
 
 function Login(props) {
   return (
+    <div className="">
       <div className="">
-  <div className="">
-     <h1 className="center">Log In</h1>
-   <Container className="login-container center">
-       <FormGroup sx ={{width: 300}}>
-            <TextField className = "" id="standard-basic" label="Username" variant="standard" sx={{marginTop: 2}} />
-            <TextField className = "" id="standard-basic" label="Password" type = "password" variant="standard" sx={{marginTop: 2}}/>
-            <FormControlLabel control={<Checkbox  />} sx={{marginTop: 2}} label="Remember me next time" />
-            <Button variant="dark" className="login "> Sign In </Button>
-       </FormGroup>
-   </Container>
-   </div>
-   </div>
+        <h1 className="center">Log In</h1>
+        <Container className="login-container center">
+          <Form method="post">
+            <Form.Group>
+              <Form.Control
+                type="text"
+                placeholder="Username"
+                name="username"
+              />
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                name="password"
+              />
+              <Form.Check type="checkbox" label="Remember me next time" />
+              <Button variant="dark" className="login " type="submit">
+                Sign In
+              </Button>
+            </Form.Group>
+          </Form>
+        </Container>
+      </div>
+    </div>
   );
 }
 

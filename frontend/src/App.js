@@ -8,6 +8,7 @@ import Dashboard from "./components/Dashboard";
 import Header from "./components/Header";
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Login from "./components/LogIn";
+import SignUp from "./components/SignUp";
 
 function App() {
  
@@ -27,6 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<CryptoList input={inputText} />} />
           <Route path="/login" element={<Login></Login>} />
+          <Route path="/signup" element={<SignUp></SignUp>} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
