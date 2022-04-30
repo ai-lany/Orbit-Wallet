@@ -126,13 +126,14 @@ export function Graph(props) {
         data: coinData,
         borderColor: color,
         pointBackgroundColor: color,
-        pointRadius: 0,
+        pointRadius: 1,
         outerGlowWidth: [5, 10, 15, 20, 25, 30, 0],
 			  outerGlowColor: 'rgb(255, 99, 132)',
-        tension: 0.4
+        tension: 0.4,
+        maintainAspectRatio: false,
      },
     ],
   };
   
-  return <Line options={options} data={data}/>
+  return <div className='graph-container'><Line options={options} data={data}/></div>
 }

@@ -2,20 +2,21 @@ import "../App.css";
 import React, { useState, useEffect } from "react";
 import useIsMounted from "../useIsMounted";
 import { Navbar, Nav, Form, NavDropdown, Button} from "react-bootstrap";
+import { Search } from 'react-bootstrap-icons';
 
 function Header(props) {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar id = "navbar" bg="transparent" variant="dark" expand="lg">
       <Navbar.Brand href="/">Orbit</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mx-auto">
+        <Nav className="">
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#link">Link</Nav.Link>
-          <Form.Control type="text" placeholder="Search" />
+          <Search/>
           <div className="login-buttons">
-          <Button href="/login" variant="outline-dark login">Log In</Button>
-          <Button href="/signup" variant="dark signup">Sign Up</Button>
+          <Nav.Link href="/login">LogIn</Nav.Link>
+          <Nav.Link className="signup-nav"href="/signup">SignUp</Nav.Link>
           </div>
           
         </Nav>

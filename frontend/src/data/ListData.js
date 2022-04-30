@@ -44,10 +44,7 @@ export default [
     id: 14,
     name: "Litecoin",
   },
-  {
-    id: 15,
-    name: "Ethereum-Classic",
-  },
+
   {
     id: 16,
     name: "Bitcoin-Cash",

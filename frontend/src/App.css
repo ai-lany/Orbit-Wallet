@@ -1,9 +1,13 @@
 *{
-    margin: 0;
-    font-family: halyard-display,sans-serif;
+    margin: 0 !important;
+    font-family: loos-normal,sans-serif;
     font-weight: 400;
     font-style: normal;
 }
+
+
+
+
 /* Box Shadow : */
 
 :root {
@@ -51,15 +55,19 @@
 }
 
 .Widget{
-    background-color: rgb(252, 252, 252);
-    height: 100%;
-    width: 20em;
+    color: rgb(203, 203, 203);
+    height: 11em;
+    width: fit-content;
     border-radius: 8px;
-    box-shadow: var(--shadow-elevation-medium);
     margin: 1em;
     display: inline-block;
     padding: 4px 8px;
-    
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.1px);
+    -webkit-backdrop-filter: blur(7.1px);
+    border: 1px solid rgba(0, 0, 0, 0.27);
 }
 
 .btn{
@@ -130,12 +138,11 @@ hr{
     margin: auto!important;
 }
 
-.signup{
-    width: 7em;
+.signup-nav{
+    background-color: rgba(255, 255, 255, 0.25);
+    color: white;
 }
-.login{
-    width: 7em;
-}
+
 
 .dash-nav{
     background: grey;
@@ -157,9 +164,170 @@ list-style: none;
 .login-buttons{
     position: absolute;
     right: 0;
+    width: 12em;
+    display: flex;
 }
 
 .login-container{
     max-width: 28vw;
     padding: 1em;
+}
+
+.Home{
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../public/assets/front-bg.jpg');
+    background-size: 100vw;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    overflow: hidden;
+}
+
+.heading{
+    font-size: clamp(2rem, 4vw, 5rem); 
+    max-width: clamp(55vw, 62vw, 80vw);
+    padding-top: 30vh;
+    padding-left: 10vw;
+}
+.heading span{
+    color: rgb(224, 0, 56);
+    font-weight: 500;
+}
+
+
+.glass{
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.1px);
+    -webkit-backdrop-filter: blur(7.1px);
+    border: 1px solid rgba(255, 255, 255, 0.27);
+}
+
+.front-signup{
+    position: absolute;
+    top: 20vh;
+    right: 8vw;
+    width: 20em;
+    height: fit-content;
+}
+
+.Home form{
+    padding: 1em;
+}
+
+
+.Header{
+    display: block;
+    width: 100vw;
+}
+
+.form-control, .form-control:focus{
+    height: 2.5em;
+    margin: 1em 0 !important;
+    border-radius: 2px;
+    background: transparent; 
+    border: none;
+    color: white;
+}
+
+.form-control::placeholder{
+    color: rgb(102, 102, 102);
+    
+}
+
+#nav{
+    display: block !important;
+    background: none;
+    width: 100vw !important;
+    
+}
+
+#navbar{
+  transition: top 0.4s;
+  top: 0;
+  border: solid rgba(255, 255, 255, 0.25);
+  border-width: 0  0 1px;
+}
+
+.navbar-toggler{
+    border: none!important;
+}
+.navbar-toggler:focus{
+    outline:none;
+    box-shadow: none !important;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #fff;
+  }
+  @media only screen and (min-width: 960px) {
+    .navbar .navbar-nav .nav-link {
+      padding: 1em 0.7em;
+    }
+    .navbar {
+      padding: 0;
+    }
+    .navbar .navbar-brand {
+      padding: 0 0.7em;
+    }
+  }
+  .navbar .navbar-nav .nav-link {
+    position: relative;
+  }
+  .navbar .navbar-nav .nav-link::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: #fff;
+        color: transparent;
+        width: 0%;
+        content: '';
+        height: 3px;
+        transition: all 0.5s;
+  }
+  .navbar .navbar-nav .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .nav-item span{
+    color: rgb(255, 255, 255);
+  }
+
+  .nav-link{
+      padding: 1em 1.5em!important;
+      border:solid rgba(255, 255, 255, 0.25);
+      border-width: 0 .5px;
+  }
+
+ .tab{
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: .5em;
+    border: solid rgba(255, 255, 255, 0.15);
+    border-width: 0 .5px;
+    border-radius: 0;
+ }
+.active{
+    background: none !important;
+
+}
+
+.graph-container{
+    width: 15em !important;
+}
+
+#landing-widget{
+    position: absolute ;
+    right: 20vw;
+    top: 60vh;
 }

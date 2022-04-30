@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Login from "./components/LogIn";
 import SignUp from "./components/SignUp";
+import Home from "./components/Home";
 
 function App() {
  
@@ -26,10 +27,11 @@ function App() {
       <Header></Header>
       <Router>
         <Routes>
-          <Route path="/" element={<CryptoList input={inputText} />} />
+          <Route path="/" element={<Home/>} />
           <Route path="/login" element={<Login></Login>} />
           <Route path="/signup" element={<SignUp></SignUp>} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/cryptolist" element = {<CryptoList input={inputText} />} />
         </Routes>
       </Router>
     </div> //End of App
