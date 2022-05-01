@@ -27,7 +27,7 @@ h1,h2,h3,h4,h5,h6{
       -0.1px 19.7px 23.9px -1.9px hsl(var(--shadow-color) / 0.53);
     }
 
-.noselect {
+.noselect, img {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -188,12 +188,16 @@ list-style: none;
     background-image: url('../public/assets/front-bg.jpg');
     background-size: 100vw;
 
+    background-position: fixed;
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 
 }
+
+
 
 .Login,.Signup{
     display: flex;
@@ -203,7 +207,7 @@ list-style: none;
 
 .heading{
     font-size: clamp(3rem, 5vw, 6rem); 
-    max-width: clamp(50vw, 75vw, 80vw);
+    max-width: clamp(50vw, 59vw, 80vw);
     padding-top: 30vh;
     padding-left: 10vw;
 }
@@ -351,6 +355,7 @@ list-style: none;
 
 .Info{
     width: 100%;
+    height: 56vh;
 }
 
 
@@ -359,18 +364,27 @@ list-style: none;
     border-color: rgba(0, 0, 0, 0.25);
     position: relative;
     top: 18vh;
-    margin: auto !important;
-    width: 70%;
+    margin: auto!important;
+    width: 60%;
     color: white;
-
+    
 }
 .coinlist-item{
     width: 100%;
+    height: 4em!important;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.062);
+}
+
+.coinlist-item img{
+    height: 80%;
 }
 
 .info-graph{
     width: 7em !important;
     height: 3em !important;
     position: absolute;
-    right: 0;
+    right: 1em;
 }

@@ -15,7 +15,7 @@ function Home(props) {
  
   return (
     <div className="Home">
-        <Row>
+        <Row style={{marginBottom: "100em"}}>
         <h1 className="heading text-light d-inline-block">Discover, trade, and sell <span >trusted cryptocurrencies. </span><img className = "exchange-arrows"src={Arrows}></img></h1>
       <Col lg={3} className="d-inline-block">
           

@@ -9,56 +9,56 @@ export default [
     name: "Ethereum",
   },
   {
-    id: 4,
+    id: 3,
     name: "Chainlink",
   },
   {
-    id: 5,
+    id: 4,
     name: "Cardano",
   },
   {
-    id: 6,
+    id: 5,
     name: "Solana",
   },
   {
-    id: 9,
+    id: 6,
     name: "VeChain",
   },
   {
-    id: 10,
+    id: 7,
     name: "Decentraland",
   },
   {
-    id: 11,
+    id: 8,
     name: "Telcoin",
   },
   {
-    id: 12,
+    id: 9,
     name: "Uniswap",
   },
   {
-    id: 13,
+    id: 10,
     name: "Maker",
   },
   {
-    id: 14,
+    id: 11,
     name: "Litecoin",
   },
 
   {
-    id: 16,
+    id: 12,
     name: "Bitcoin-Cash",
   },
   {
-    id: 17,
+    id: 13,
     name: "Serum",
   },
   {
-    id: 18,
+    id: 14,
     name: "Tether",
   },
   {
-      id: 19,
+      id: 15,
       name: "Shiba-Inu"
   }
 ];

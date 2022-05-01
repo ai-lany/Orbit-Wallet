@@ -22,11 +22,11 @@ function SignUp(props) {
             <div className="form-group">
               <input
                 type="submit"
-                value="Submit"
+                value="Create Account"
                 className="w-100 btn btn-dark btn-block"
               />
             </div>
-            Already have an account? <a href="/login" className="btn">Sign Up</a>
+            Already have an account? <a href="/login" className="btn">Log In</a>
           </form>
           
         </Container>
