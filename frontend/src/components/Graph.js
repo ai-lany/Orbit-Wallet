@@ -135,5 +135,5 @@ export function Graph(props) {
     ],
   };
   
-  return <div className='graph-container'><Line options={options} data={data}/></div>
+  return <Line options={options} data={data}/>
 }

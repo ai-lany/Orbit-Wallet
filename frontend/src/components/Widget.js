@@ -58,7 +58,7 @@ function Widget(props) {
           </tr>
         </thead>
         </table>
-        <Graph id ={name} change = {change}></Graph>
+        <div className='graph-container'><Graph id ={name} change = {change}></Graph></div>
       </div>
     </div>
   );

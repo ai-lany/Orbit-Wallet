@@ -5,10 +5,10 @@ import { Container, Button, Form } from "react-bootstrap";
 
 function SignUp(props) {
   return (
-    <div className="">
+    <div className="Signup">
       <div className="">
         <h1 className="center">Sign Up</h1>
-        <Container className="login-container center">
+        <Container className="glass login-container center">
           <form  method ='post'>
             <div className="form-group">
               <input name='username'type="text" className="form-control" placeholder="Username"/>
@@ -23,10 +23,12 @@ function SignUp(props) {
               <input
                 type="submit"
                 value="Submit"
-                className="btn btn-dark btn-block"
+                className="w-100 btn btn-dark btn-block"
               />
             </div>
+            Already have an account? <a href="/login" className="btn">Sign Up</a>
           </form>
+          
         </Container>
       </div>
     </div>

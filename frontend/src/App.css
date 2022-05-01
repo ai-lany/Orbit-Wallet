@@ -5,7 +5,9 @@
     font-style: normal;
 }
 
-
+h1,h2,h3,h4,h5,h6{
+    color: rgb(249, 241, 227);
+}
 
 
 /* Box Shadow : */
@@ -169,11 +171,15 @@ list-style: none;
 }
 
 .login-container{
-    max-width: 28vw;
+    margin:auto !important;
+    max-width: 30em;
     padding: 1em;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 }
 
-.Home{
+.Home, .Login, .Signup{
     position: absolute;
     top: 0;
     z-index: -1;
@@ -187,12 +193,17 @@ list-style: none;
     -o-background-size: cover;
     background-size: cover;
 
-    overflow: hidden;
+}
+
+.Login,.Signup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .heading{
-    font-size: clamp(2rem, 4vw, 5rem); 
-    max-width: clamp(55vw, 62vw, 80vw);
+    font-size: clamp(3rem, 5vw, 6rem); 
+    max-width: clamp(50vw, 75vw, 80vw);
     padding-top: 30vh;
     padding-left: 10vw;
 }
@@ -330,4 +341,36 @@ list-style: none;
     position: absolute ;
     right: 20vw;
     top: 60vh;
+}
+
+.exchange-arrows{
+    height: 2em;
+    transform: rotate(90deg);
+    display: inline;
+}
+
+.Info{
+    width: 100%;
+}
+
+
+.coin-list{
+    background-color: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.25);
+    position: relative;
+    top: 18vh;
+    margin: auto !important;
+    width: 70%;
+    color: white;
+
+}
+.coinlist-item{
+    width: 100%;
+}
+
+.info-graph{
+    width: 7em !important;
+    height: 3em !important;
+    position: absolute;
+    right: 0;
 }

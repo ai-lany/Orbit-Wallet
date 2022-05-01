@@ -5,6 +5,8 @@ import '../App.css';
 import axios from 'axios';
 import useIsMounted from '../useIsMounted.js';
 
+
+
 function CryptoList(props) {
 
     const filteredData = cryptoData.filter((el) => {
@@ -16,8 +18,8 @@ function CryptoList(props) {
         else {
             return el.name.toLowerCase().includes(props.input)
         }
-    })
-    
+    })   
+        
 
     return (
     <div className='List'>

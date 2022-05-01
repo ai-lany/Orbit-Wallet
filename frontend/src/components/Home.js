@@ -7,14 +7,16 @@ import Widget from "./Widget";
 import SignUp from "./SignUp";
 import Eth from "./Eth";
 import CryptoList from "./CryptoList";
-import Info from "./Info";
+import CoinInfo from './CoinInfo';
+import Arrows from "../assets/shape-71.svg"
+
 
 function Home(props) {
  
   return (
     <div className="Home">
         <Row>
-        <h1 className="heading text-light d-inline-block">Discover, trade, and sell <span >trusted cryptocurrencies. </span></h1>
+        <h1 className="heading text-light d-inline-block">Discover, trade, and sell <span >trusted cryptocurrencies. </span><img className = "exchange-arrows"src={Arrows}></img></h1>
       <Col lg={3} className="d-inline-block">
           
         <Eth></Eth>
@@ -23,7 +25,7 @@ function Home(props) {
       </Col>
         </Row>
         <Row>
-            <Info></Info>
+            <CoinInfo ></CoinInfo>
         </Row>
       
 
