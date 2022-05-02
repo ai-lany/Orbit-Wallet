@@ -36,6 +36,17 @@ h1,h2,h3,h4,h5,h6{
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
+
+::-moz-selection { /* Code for Firefox */
+  color: rgb(233, 50, 50);
+  background: rgb(169, 255, 195);
+}
+
+::selection {
+  color: rgb(233, 50, 50);
+  background: rgb(169, 255, 195);
+}
+
 .search{
     padding: 1em;
 }
