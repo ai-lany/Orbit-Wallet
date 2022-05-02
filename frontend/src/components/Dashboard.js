@@ -8,11 +8,11 @@ import Widget from "./Widget";
 function Dashboard(props) {
  
   return (
-    <div className="Dashboard">
-      <Container>
-        <Row>
+    <div className="Dashboard" style={{ width: "100vw" }}>
+      <Container style={{ width: "100vw" }}>
+        <Row style={{ width: "100vw" }}>
           <h1>Dashboard</h1>
-          <Col xs={2} className="dash-nav">
+          <div className="d-none d-lg-block dash-nav">
             <ul>
               <li>
                 <NavLink>Dashboard</NavLink>
@@ -27,17 +27,20 @@ function Dashboard(props) {
                 <NavLink>Settings</NavLink>
               </li>
             </ul>
-          </Col>
-          <Col lg={7} className="dash-main">
-            <h3>Portfolio</h3>
-            <Container className="bg-white">sdfsdfsd</Container>
+          </div>
+          <Col lg={7}>
+            <div className="glass dash-main">
+              <h3>Portfolio</h3>
+              <Container className="bg-white">sdfsdfsd</Container>
 
-            <h3>Watchlist</h3>
-            <Container className="bg-white">sdflksdflkn</Container>
-
+              <h3>Watchlist</h3>
+              <Container className="bg-white">sdflksdflkn</Container>
+            </div>
           </Col>
-          <Col lg={3} className="other">
-            <h3>Transaction History</h3>
+          <Col lg={3}>
+            <div className="glass other">
+              <h3>Transaction History</h3>
+            </div>
           </Col>
         </Row>
       </Container>

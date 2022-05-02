@@ -26,6 +26,15 @@ h1,h2,h3,h4,h5,h6{
       0px 8px 9.7px -1.3px hsl(var(--shadow-color) / 0.48),
       -0.1px 19.7px 23.9px -1.9px hsl(var(--shadow-color) / 0.53);
     }
+.low-shadow{
+    box-shadow: var(--shadow-elevation-low);
+}
+.med-shadow{
+    box-shadow: var(--shadow-elevation-medium);
+}    
+.lg-shadow{
+    box-shadow: var(--shadow-elevation-high);
+}
 
 .noselect, img {
   -webkit-touch-callout: none; /* iOS Safari */
@@ -158,11 +167,16 @@ hr{
 
 
 .dash-nav{
-    background: grey;
+    background: none;
     height: 100vh;
+    width: 15%;
 }
 .dash-main{
     background: lightblue;
+    padding: 1.2em;
+}
+.other{
+    padding: 1.2em;
 }
 
 ul{
@@ -171,7 +185,6 @@ list-style: none;
 
 .container{
     border-radius: 8px;
-    box-shadow: var(--shadow-elevation-medium);
 }
 
 .login-buttons{
