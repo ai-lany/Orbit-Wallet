@@ -1,14 +1,17 @@
 {
+  "engines": {
+    "node": "14.18.0"
+  },
   "dependencies": {
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "serve": "^13.0.2"
   },
   "scripts": {
-    "build": "cd frontend && npm run build",
+    "build": "cd frontend && react-scripts build",
     "install-client": "cd frontend && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "server": "cd backend && npm install && nodemon server.js",
+    "server": "cd backend && nodemon server.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\"",
     "start": "concurrently --kill-others-on-fail \"npm run server\""
-}
-  
+  }
 }
