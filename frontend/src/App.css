@@ -196,7 +196,6 @@ list-style: none;
 
 .login-container{
     margin:auto !important;
-    max-width: 30em;
     padding: 1em;
     display: flex !important;
     justify-content: center;

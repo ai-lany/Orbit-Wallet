@@ -1,15 +1,12 @@
 import { React, useState } from "react";
-import TextField from "@mui/material/TextField";
 import "./App.css";
-import CryptoList from "./components/CryptoList";
-import {Container} from 'react-bootstrap';
-import PizzaChart from "./components/Graph";
-import Dashboard from "./components/Dashboard";
-import Header from "./components/Header";
+import CryptoList from "./pages/components/CryptoList";
+import Dashboard from "./pages/Dashboard";
+import Header from "./pages/components/Header";
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import Login from "./components/LogIn";
-import SignUp from "./components/SignUp";
-import Home from "./components/Home";
+import Login from "./pages/LogIn";
+import SignUp from "./pages/SignUp";
+import Home from "./pages/Home";
 
 function App() {
  
