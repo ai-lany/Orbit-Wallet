@@ -3,15 +3,30 @@ const cors = require('cors')
 const axios = require('axios');
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
+const path = require('path')
 
 const mongoose = require('mongoose');
 const User = require('./models/userModel');
-mongoose.connect('mongodb://localhost:27017/orbitDB', {useNewUrlParser: true})
+require("dotenv").config()
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING,
+{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}
+).then(() => console.log("MongoDB has been started.")).catch((err) => console.log(err))
+
 
 const app = express();
+const PORT = process.env.PORT || 3001
 
 app.use(cors())
 app.use(express.json())
+
+app.use(express.static(path.resolve(__dirname, "../frontend/build")));
+// Step 2:
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
+});
 
 // Handle GET requests to /api route
 app.get("/api", (req, res) => {
@@ -19,8 +34,8 @@ app.get("/api", (req, res) => {
 });
 
   
-app.listen(3001, function(){
-    console.log("Server is running on port 3001.")
+app.listen(PORT, function(){
+    console.log("Server is running on port "+ PORT)
     
 });
 
