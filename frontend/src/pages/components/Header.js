@@ -10,6 +10,16 @@ function Header(props) {
   const navigate = useNavigate();
   const [auth, setAuth] = useState();
   const [user, setUser] = useState({})
+  const [toggle, setToggle] = useState('');
+
+
+  function toggleNav(){
+    if(toggle == 'd-none'){
+      setToggle(' ')
+    }else{
+      setToggle('d-none')
+    }
+  }
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -23,6 +33,8 @@ function Header(props) {
         setUser(user);
       }
     }
+    setToggle('d-none');
+
   }, []);
 
   if (!auth) {
@@ -34,14 +46,14 @@ function Header(props) {
         variant="dark"
         expand="lg"
       >
-        <Navbar.Brand href="/">
+        <Navbar.Brand href="/" style={{ position: "relative", top: ".2em"}}>
           <img
             style={{ height: "2em", padding: "0 0 .3em" }}
             src={Star}
           ></img>
           Orbit
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav"  onClick={toggleNav}/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="">
             <Nav.Link href="/">Home</Nav.Link>
@@ -55,6 +67,9 @@ function Header(props) {
             </div>
           </Nav>
         </Navbar.Collapse>
+        <div style ={{position: "absolute" , top: "0", height:"100vh", width: "100vw"}} className={"bg-blur " + toggle}>
+.
+        </div>
       </Navbar>
     );
   } else {
@@ -81,7 +96,7 @@ function Header(props) {
           </img>
           Orbit
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={toggleNav}  />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav style={{ position: "absolute", right: "0", top: "0"}} className="">
             <div style={{lineHeight: "3.6em", padding: "0 1em", display: "flex"}} className="btn user-menu text-light">

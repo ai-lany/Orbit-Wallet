@@ -13,7 +13,7 @@ h1,h2,h3,h4,h5,h6{
 /* Box Shadow : */
 
 :root {
-    --shadow-color: 0deg 0% 72%;
+    --shadow-color: 0deg 0% 0%;
     --shadow-elevation-low:
       0px 0.3px 0.4px hsl(var(--shadow-color) / 0.28),
       0px 0.9px 1.1px -1.9px hsl(var(--shadow-color) / 0.37);
@@ -187,12 +187,6 @@ list-style: none;
     border-radius: 8px;
 }
 
-.login-buttons{
-    position: absolute;
-    right: 0;
-    width: 12em;
-    display: flex;
-}
 
 .login-container{
     margin:auto !important;
@@ -229,6 +223,41 @@ list-style: none;
         padding: 0 !important;
     }
 
+    .login-buttons{
+        position: absolute;
+        right: 0;
+        width: 12em;
+        display: flex;
+    }
+
+}
+@media (max-width: 991px) {
+
+    .navbar-collapse{
+        width: min(200px, 40vw);
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 3.48em 0 0!important;
+        float: right;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius:12px;
+        box-shadow: var(--shadow-elevation-medium);
+        border: 1px solid rgba(0, 0, 0, 0.27);
+        z-index: 5;
+    }
+    .navbar-nav .nav-link {
+        border:none;
+        background: none !important;
+        width: 100%!important;
+    }
+    .signup-nav{
+        color:rgb(255, 133, 163)!important;
+    }
+    .navbar-toggler{
+        z-index: 10;
+    }
+    
 
 }
 
@@ -259,7 +288,11 @@ list-style: none;
 
 }
 
-
+.bg-blur{
+    z-index: 2;
+    backdrop-filter: blur(10.1px);
+    -webkit-backdrop-filter: blur(8.1px);
+}
 .glass{
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.25);

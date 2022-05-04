@@ -2,6 +2,8 @@
   .moon {
     position: absolute;
     z-index: -2;
+    -webkit-transform: translate3d(0,0,0) ;
+    transform: translate3d(0,0,0);
     right: 4vw;
     top:  10%;
     width: 28em;
@@ -16,6 +18,8 @@
   .eth {
     position: absolute;
     z-index: -1;
+    -webkit-transform: translate3d(0,0,0) ;
+    transform: translate3d(0,0,0);
     right: 15vw;
     top:  35%;
     width: 10em;
