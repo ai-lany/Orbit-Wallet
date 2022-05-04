@@ -1,4 +1,18 @@
 {
+  "name": "orbit",
+  "description": "A customizable cryptocurrency wallet / dashboard",
+  "version": "1.0.0",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ailanyEXE/Orbit-Wallet.git"
+  },
+  "author": "Ailany",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ailanyEXE/Orbit-Wallet/issues"
+  },
+  "homepage": "https://github.com/ailanyEXE/Orbit-Wallet#readme",
   "engines": {
     "node": "14.18.0"
   },
