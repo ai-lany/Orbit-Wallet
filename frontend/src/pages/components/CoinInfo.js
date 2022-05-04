@@ -10,8 +10,8 @@ function CryptoInfo(props) {
     
   return (
     <div className="">
-      <div className="Info d-block mx-auto">
-        <div className="d-none d-lg-block coin-list glass " style={{overflow:"hidden", margin: "0 0 2em 0" }}>
+      <div className=" d-block mx-auto">
+        <div className="d-none d-md-block coin-list glass " style={{overflow:"hidden"}}>
           
           <div className="d-flex glass-black" style={{zIndex:"2", width: "100%", height: "3em"}}>
             <div style={{flex:"0 10%"}}>

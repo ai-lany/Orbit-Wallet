@@ -21,7 +21,7 @@ function Home(props) {
   return (
     <div className="Home">
       <Header></Header>
-      <Row style={{ padding: "0 0 10em" }}>
+      <Row >
         <Col lg={8}>
           <h1 style={{}} className="heading text-light d-inline-block">
             Discover, trade, and sell <span>trusted </span>

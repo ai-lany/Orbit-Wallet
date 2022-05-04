@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom"
 
 
 function SignUp(props) {
-  const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate()
@@ -20,7 +21,8 @@ async function registerUser(event){
            'Content-Type': 'application/json' 
         },
         body: JSON.stringify({
-            username,
+            firstName,
+            lastName,
             email,
             password
         })
@@ -42,9 +44,16 @@ async function registerUser(event){
               <Form.Control
                 className="glass"
                 type="text"
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                placeholder="First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+              <Form.Control
+                className="glass"
+                type="text"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
               />
               <Form.Control
                 className="glass"

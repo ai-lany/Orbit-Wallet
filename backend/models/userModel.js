@@ -2,10 +2,13 @@ const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema(
     {
-        username: {
+        firstName: {
             type: String,
             required: true,
             unique: true
+        },
+        lastName:{
+            
         },
         email: {
             type: String,
@@ -21,6 +24,12 @@ const userSchema = new mongoose.Schema(
             default: Date.now
         },
         quote: { type: String },
+        coins_owned: {
+            type: Array,
+        },
+        watchlist: {
+            type: Array,
+        }
     },
     { collection: 'users'}
  )
