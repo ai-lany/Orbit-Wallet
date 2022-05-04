@@ -5,14 +5,14 @@ import Info from "./Info";
 
 function CryptoInfo(props) {
     
-
+  const count = props.count;
     
   return (
     <div className="mx-auto">
       <div className="Info">
         <div className="coin-list glass " style={{ margin: "0 0 2em 0" }}>
           {cryptoData
-            .filter((coin, index) => index < 5)
+            .filter((coin, index) => index < count)
             .map((data) => {
               return (
                 <table className="">

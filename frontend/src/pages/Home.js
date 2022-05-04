@@ -32,7 +32,7 @@ function Home(props) {
       </Col>
         </Row>
         <Row>
-            <CoinInfo  ></CoinInfo>
+            <CoinInfo count={3} ></CoinInfo>
             
         </Row>
       
