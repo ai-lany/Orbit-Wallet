@@ -7,11 +7,11 @@
     "serve": "^13.0.2"
   },
   "scripts": {
-    "dev": "cd frontend && npm start",
-    "start": "serve -s build",
-    "build": "cd frontend && npm i && npm run build",
-    "test": "cd frontend && react-scripts test --env=jsdom",
-    "eject": "cd frontend && react-scripts eject",
-    "heroku-postbuild": "npm run build"
-    }
+    "build": "cd frontend && react-scripts build",
+    "install-client": "cd frontend && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "server": "cd backend && nodemon server.js",
+    "develop": "concurrently --kill-others-on-fail \"npm run server\"",
+    "start": "npm run server"
+  }
 }
