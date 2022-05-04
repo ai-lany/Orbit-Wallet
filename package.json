@@ -7,7 +7,7 @@
     "serve": "^13.0.2"
   },
   "scripts": {
-    "build": "cd frontend && react-scripts build",
+    "build": "cd frontend && npm run build",
     "install-client": "cd frontend && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
     "server": "cd backend && nodemon server.js",
