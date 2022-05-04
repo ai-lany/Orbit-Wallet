@@ -1,44 +1,57 @@
 import "../App.css";
 import React, { useState, useEffect } from "react";
 import useIsMounted from "../useIsMounted";
-import {Container, Row, Col, NavLink} from 'react-bootstrap'
+import { Container, Row, Col, NavLink } from "react-bootstrap";
 import { Graph } from "./components/Graph";
 import Widget from "./components/Widget";
 import SignUp from "./SignUp";
 import Eth from "./components/Eth";
 import CryptoList from "./components/CryptoList";
-import CoinInfo from './components/CoinInfo';
-import Arrows from "../assets/shape-71.svg"
-import Header from "./components/Header"
+import CoinInfo from "./components/CoinInfo";
+import Arrows from "../assets/shape-71.svg";
+import Header from "./components/Header";
 import { gsap } from "gsap";
 
-
 function Home(props) {
- 
-
-    useEffect(() => {
-        gsap.fromTo(".heading", {x: -30}, {x: 0, duration: 2});
-        gsap.fromTo(".heading", {opacity: 0}, {opacity: 1, duration: 2});
-    })
+  useEffect(() => {
+    gsap.fromTo(".heading", { x: -30 }, { x: 0, duration: 2 });
+    gsap.fromTo(".heading", { opacity: 0 }, { opacity: 1, duration: 2 });
+  });
 
   return (
     <div className="Home">
       <Header></Header>
-        <Row style={{padding: "0 0 10em"}}>
-        <h1 className="heading text-light d-inline-block">Discover, trade, and sell <span >trusted cryptocurrencies. </span><img className = "exchange-arrows"src={Arrows}></img></h1>
-      <Col lg={3} className="d-inline-block">
-          
-        <Eth></Eth>
-        <div id="landing-widget"> <CryptoList  input="ethereum"/> </div>
-        
-      </Col>
-        </Row>
-        <Row>
-            <CoinInfo count={5} ></CoinInfo>
-            
-        </Row>
-      
-
+      <Row style={{ padding: "0 0 10em" }}>
+        <Col lg={8}>
+          <h1 style={{}} className="heading text-light d-inline-block">
+            Discover, trade, and sell <span>trusted </span>
+            <div
+              style={{
+                display: "inline",
+                height: "4.5rem",
+                width: "4.5rem",
+                overflow: "hidden",
+                backgroundImage: `url(${Arrows})`,
+              }}
+            ></div>
+            <span> cryptocurrencies.</span>
+          </h1>
+        </Col>
+        <Col lg={4} style={{ margin: "0 0 5vw" }} className="d-inline-block">
+          <Eth></Eth>
+          <div
+            className="d-flex"
+            id="landing-widget"
+            style={{justifyContent:"center", padding: "3rem 0 0"}}
+          >
+            {" "}
+            <CryptoList input="ethereum" />{" "}
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <CoinInfo count={5}></CoinInfo>
+      </Row>
     </div>
   );
 }

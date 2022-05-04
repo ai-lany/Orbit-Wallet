@@ -4,7 +4,6 @@ export default function Eth(){
     return(
 
         <div>
-                <div class="stars"></div>
         <div class="moon"></div>
         <div class="eth">
         <div class="bottom">

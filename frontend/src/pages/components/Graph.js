@@ -64,15 +64,15 @@ export function Graph(props) {
       }
     };*/
   const options = {
+    responsive: true,
     animation:{
       duration: 100
     },
     layout: {
       padding: {
         bottom: 20
-      }
+      },
     },
-    responsive: true,
     type: 'line',
     scales: {
       yAxes: {

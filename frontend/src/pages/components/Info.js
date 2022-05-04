@@ -51,30 +51,33 @@ function Info(props) {
   });
 
   return (
-    <div className=" coinlist-item  w-100">
+    <div className="d-flex coinlist-item " style={{width: "100%"}}>
+      
       <h5
-        className="d-inline"
-        style={{ padding: "0 1em 0 0.5em", width: "2em" }}
+        className=""
+        style={{ flex: "0 3%"}}
       >
         {props.id}
       </h5>
-      <img src={icon} style={{ padding: "0 1em 0 1em" }}></img>
-      <div className="d-inline" style={{ padding: "0 3em 0 0", width: "15em" }}>
+      <img src={icon} style={{ flex: "0 2%", padding: "0 .5em 0 1em" }}></img>
+      
+      <div className="" style={{ flex: "0 30%" }}>
         <h5 className="d-inline">{props.name}&nbsp;</h5> {symbol}
       </div>
-
-      <div style={{ width: "10em" }}>${price}</div>
-      <div style={{ width: "10em", color: color }}>
+    
+      <div style={{ flex: "0 20%"  }}>${price}</div>
+      <div style={{ flex: "0 15%" , color: color }}>
         {Math.round((change + Number.EPSILON) * 100) / 100}%
       </div>
-      <div style={{ width: "10em", color: color }}>
+      <div className="d-none d-xl-block " style={{flex: "0 10%" , color: color }}>
         {Math.round((marketCap + Number.EPSILON) * 100) / 100}%
       </div>
-      <div className="d-inline info-graph">
-        <Graph className="" id={name} change={change}></Graph>
-      </div>
+      <div style={{flex: "0 15%" }} className="info-graph">
+          <Graph className="" id={name} change={change}></Graph>
+        </div>
 
       <hr></hr>
+      
     </div>
   );
 }
