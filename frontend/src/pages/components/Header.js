@@ -3,11 +3,12 @@ import React, { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import { Navbar, Nav} from "react-bootstrap";
 import { Search } from 'react-bootstrap-icons';
+import Star from '../../assets/star.svg'
 
 function Header(props) {
   return (
     <Navbar id = "navbar" bg="transparent" variant="dark" expand="lg">
-      <Navbar.Brand href="/">Orbit</Navbar.Brand>
+      <Navbar.Brand href="/"><img style={{height: "1.8em", padding: "0 0 .2em"}} src = {Star}></img>Orbit</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="">
