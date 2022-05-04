@@ -285,8 +285,7 @@ list-style: none;
 #nav{
     display: block !important;
     background: none;
-    width: 100vw !important;
-    
+    width: 100vw !important;    
 }
 
 #navbar{
@@ -294,6 +293,7 @@ list-style: none;
   top: 0;
   border: solid rgba(255, 255, 255, 0.25);
   border-width: 0  0 1px;
+  height: 3.6em !important;
 }
 
 .navbar-toggler{
@@ -346,6 +346,7 @@ list-style: none;
       padding: 1em 1.5em!important;
       border:solid rgba(255, 255, 255, 0.25);
       border-width: 0 .5px;
+      height: 3.6em !important;
   }
 
  .tab{

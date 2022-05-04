@@ -6,11 +6,13 @@ import { Graph } from "./components/Graph";
 import Widget from "./components/Widget";
 import jwtDecode from 'jwt-decode'
 import { useNavigate } from "react-router-dom";
+import Header from "./components/Header";
 
 function Dashboard(props) {
   const navigate = useNavigate();
   const [quote, setQuote] = useState('');
   const [tempQuote, setTempQuote] = useState('');
+
 
   async function populateQuote() {
 		const req = await fetch('http://localhost:3001/api/quote', {
@@ -28,14 +30,14 @@ function Dashboard(props) {
 	}
 
 	useEffect(() => {
-		const token = localStorage.getItem('token')
+		const token = localStorage.getItem('token');
 		if (token) {
-			const user = jwtDecode(token)
+			const user = jwtDecode(token);
 			if (!user) {
-				localStorage.removeItem('token')
-				navigate.replace('/login')
+				localStorage.removeItem('token');
+				navigate.replace('/login');
 			} else {
-				populateQuote()
+				populateQuote();
 			}
 		}
 	}, [])
@@ -64,6 +66,7 @@ function Dashboard(props) {
 	}
   return (
     <div className="Dashboard" style={{ width: "100vw" }}>
+      <Header auth={true} ></Header>
       <Container style={{ width: "100vw" }}>
         <Row style={{ width: "100vw" }}>
           <h1>Dashboard</h1>

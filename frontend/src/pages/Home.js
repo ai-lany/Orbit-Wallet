@@ -9,6 +9,7 @@ import Eth from "./components/Eth";
 import CryptoList from "./components/CryptoList";
 import CoinInfo from './components/CoinInfo';
 import Arrows from "../assets/shape-71.svg"
+import Header from "./components/Header"
 import { gsap } from "gsap";
 
 
@@ -22,6 +23,7 @@ function Home(props) {
 
   return (
     <div className="Home">
+      <Header></Header>
         <Row style={{padding: "0 0 10em"}}>
         <h1 className="heading text-light d-inline-block">Discover, trade, and sell <span >trusted cryptocurrencies. </span><img className = "exchange-arrows"src={Arrows}></img></h1>
       <Col lg={3} className="d-inline-block">

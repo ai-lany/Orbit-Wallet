@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 
 function App() {
  
+  //search bar / filter : 
   const [inputText, setInputText] = useState("");
   let inputHandler = (e) => {
     //convert input text to lower case
@@ -21,7 +22,6 @@ function App() {
 
   return (
     <div className="App">
-      <Header></Header>
       <Router>
         <Routes>
           <Route path="/" element={<Home/>} />
