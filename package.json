@@ -7,9 +7,9 @@
     "serve": "^13.0.2"
   },
   "scripts": {
-    "dev": "cd frontend && react-scripts start",
+    "dev": "cd frontend && npm start",
     "start": "serve -s build",
-    "build": "cd frontend && npm i && react-scripts build",
+    "build": "cd frontend && npm i && npm run build",
     "test": "cd frontend && react-scripts test --env=jsdom",
     "eject": "cd frontend && react-scripts eject",
     "heroku-postbuild": "npm run build"
