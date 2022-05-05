@@ -313,6 +313,13 @@ list-style: none;
     border: 1px solid rgba(0, 0, 0, 0.27);
 }
 
+.section{
+    padding: 1em;
+}
+.vertical-space{
+    margin-bottom: 1em !important;
+}
+
 .front-signup{
     position: absolute;
     top: 20vh;
@@ -469,3 +476,18 @@ list-style: none;
 }
 
 
+
+
+.dash-nav button{
+    background-color: rgba(0, 0, 0, 0.75);
+    border: solid 1px black;
+    width: 100%;
+    padding: auto ;
+    margin:0 0 1em  !important;
+    font-size: 1.2em;
+
+}
+
+.Dashboard{
+   
+}

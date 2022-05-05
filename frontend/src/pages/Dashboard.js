@@ -1,12 +1,13 @@
 import "../App.css";
 import React, { useState, useEffect } from "react";
 import useIsMounted from "../useIsMounted";
-import { Container, Row, Col, NavLink } from "react-bootstrap";
+import { Container, Row, Col, NavLink, Button } from "react-bootstrap";
 import { Graph } from "./components/Graph";
 import Widget from "./components/Widget";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import Header from "./components/Header";
+import CoinInfo from './components/CoinInfo'
 
 function Dashboard(props) {
   const navigate = useNavigate();
@@ -68,30 +69,36 @@ function Dashboard(props) {
       <Header auth={true}></Header>
       <Container style={{ width: "100vw" }}>
         <Row style={{ width: "100vw" }}>
-          <h1>Dashboard</h1>
-          <div className="d-none d-lg-block dash-nav">
+          <div  className="d-none d-lg-block dash-nav">
             <ul>
               <li>
-                <NavLink>Dashboard</NavLink>
+                <Button>Dashboard</Button>
               </li>
               <li>
-                <NavLink>History</NavLink>
+                <Button>Explore</Button>
               </li>
               <li>
-                <NavLink>Help</NavLink>
+                <Button>Help</Button>
               </li>
               <li>
-                <NavLink>Settings</NavLink>
+                <Button>Settings</Button>
+                
               </li>
             </ul>
           </div>
           <Col lg={7}>
-            <div className="glass dash-main">
-              <h3>Portfolio</h3>
-              <Container className="bg-white">sdfsdfsd</Container>
+            <div className="glass-black vertical-space">
+              <div className="glass-black" style={{padding: ".5em 1em"}}><h3>Portfolio</h3></div>
+              <div className="section" style={{height:" 40vh" }}>
+                <Graph id={'bitcoin'} ></Graph>
+              </div>
 
-              <h3>Watchlist</h3>
-              <Container className="bg-white">
+              
+            </div>
+            
+            <CoinInfo style={{width: "100%"}} count={5}></CoinInfo>
+          
+            <div className="">
                 Quote: {quote} <br></br>
                 <form onSubmit={updateQuote}>
                   <input
@@ -102,12 +109,14 @@ function Dashboard(props) {
                   />
                   <input type="submit" value="Update quote" />
                 </form>
-              </Container>
-            </div>
+              </div>
           </Col>
           <Col lg={3}>
-            <div className="glass other">
-              <h3>Transaction History</h3>
+            <div className="glass-black ">
+              <div className="glass-black">
+               <h3 style={{padding: ".25em .5em"}}>Transactions</h3>
+              </div>
+              sldkfnslkdf
             </div>
           </Col>
         </Row>

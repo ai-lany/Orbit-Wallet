@@ -104,7 +104,7 @@ function Header(props) {
                 <PersonFill height={60} width={30} style={{position: "relative", bottom: "1em"}}/>
               </div>
               
-              {user.username}
+              {user.firstName}
               
               </div>
             <Nav.Link

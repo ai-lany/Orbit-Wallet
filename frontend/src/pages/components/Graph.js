@@ -41,7 +41,7 @@ export function Graph(props) {
         if (isMounted.current){
           setCoinData(dayChart)
           const label = dayChart.map(function(x) {
-            return x[0];
+            return new Date(x[0]);
           });
           setLabels(label)
         }
