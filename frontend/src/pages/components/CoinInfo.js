@@ -9,7 +9,7 @@ function CryptoInfo(props) {
     
   const [auth, setAuth] = useState();
   const [user, setUser] = useState({});
-  const [watchlist, setWatchlist] = useState([]);
+  const [watchlist, setWatchlist] = useState();
   
 
   useEffect(() => {
@@ -46,7 +46,7 @@ function CryptoInfo(props) {
               <div style={{flex:"0 13%"}}>
                 <Button style={{color: "grey"}} variant="btn ">24h</Button>
               </div>
-              <div class="d-none d-xl-block" style={{flex:"0 15%"}}>
+              <div className="d-none d-xl-block" style={{flex:"0 15%"}}>
                 <Button style={{color: "grey"}} variant="btn ">Market Cap</Button>
               </div>
           
@@ -95,9 +95,8 @@ function CryptoInfo(props) {
             <div className="d-flex glass-black" style={{zIndex:"2", width: "100%", height: "3em", padding: ".3em 1em .5em"}}>
              <h3>Watchlist</h3> <h3 style={{position:"absolute", right: ".5em", top:"0"}}>...</h3>
             </div>
-            {watchlist
-              .filter((coin, index) => index < watchlist.length)
-              .map((data, index) => {
+            {props.watchlist.map((data, index) => {
+               
                 return (
                     <Info  name={data} id={index+1} />
                 );

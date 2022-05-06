@@ -30,7 +30,7 @@ function Info(props) {
     }
   } 
   async function populateFavorite() {
-    const req = await fetch("http://localhost:3001/api/favorite", {
+    const req = await fetch("http://orbit-wallet.herokuapp.com/api/favorite", {
       method: "GET",
       headers: {
         "x-access-token": localStorage.getItem("token"),
@@ -53,7 +53,7 @@ function Info(props) {
 
   async function toggleFavorite(event) {
     event.preventDefault();
-    const req = await fetch("http://localhost:3001/api/favorite", {
+    const req = await fetch("http://orbit-wallet.herokuapp.com/api/favorite", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -86,11 +86,12 @@ function Info(props) {
 
         console.log(price);
         if (isMounted.current) {
-          setPrice(price);
-          setChange(change);
-          setIcon(icon);
-          setSymbol(symbol);
-          setMarketCap(marketCap);
+          Promise.all([ setPrice(price),
+          setChange(change),
+          setIcon(icon),
+          setSymbol(symbol),
+          setMarketCap(marketCap)])
+          
           if (change > 0) {
             setColor("#52f268");
           } else {

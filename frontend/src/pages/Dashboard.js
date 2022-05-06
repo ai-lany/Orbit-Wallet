@@ -16,7 +16,7 @@ function Dashboard(props) {
   const [watchlist, setWatchlist] = useState([])
 
   async function populateQuote() {
-    const req = await fetch("http://localhost:3001/api/quote", {
+    const req = await fetch("http://orbit-wallet.herokuapp.com/api/quote", {
       headers: {
         "x-access-token": localStorage.getItem("token"),
       },
@@ -38,14 +38,18 @@ function Dashboard(props) {
         localStorage.removeItem("token");
         navigate.replace("/login");
       } else {
-        populateQuote();
-        populateWatchlist();
+        Promise.all([
+          populateWatchlist(),
+          populateQuote()
+        ])
+  
+        
       }
     }
   }, []);
 
   async function populateWatchlist() {
-    const req = await fetch("http://localhost:3001/api/favorite", {
+    const req = await fetch("http://orbit-wallet.herokuapp.com/api/favorite", {
       method: "GET",
       headers: {
         "x-access-token": localStorage.getItem("token"),
@@ -55,15 +59,19 @@ function Dashboard(props) {
 
     const data = await req.json();
     if (data.status === "ok") {
-      setWatchlist(data.watchlist);
+      if(useIsMounted){
+        setWatchlist(data.watchlist);
+      }
+      
     } else {
       alert(data.error);
     }
+
   }
   async function updateQuote(event) {
     event.preventDefault();
 
-    const req = await fetch("http://localhost:3001/api/quote", {
+    const req = await fetch("http://orbit-wallet.herokuapp.com/api/quote", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -90,16 +98,16 @@ function Dashboard(props) {
           <div  className="d-none d-lg-block dash-nav">
             <ul>
               <li>
-              <Button href="/dashboard">Dashboard</Button>
+              <Button className="btn btn-dark w-100" href="/dashboard">Dashboard</Button>
               </li>
               <li>
-                <Button href="/explore">Explore</Button>
+                <Button className="btn btn-dark w-100" href="/explore">Explore</Button>
               </li>
               <li>
-                <Button href="/help">Help</Button>
+                <Button className="btn btn-dark w-100" href="/help">Help</Button>
               </li>
               <li>
-                <Button href="/settings">Settings</Button>
+                <Button className="btn btn-dark w-100" href="/settings">Settings</Button>
                 
               </li>
             </ul>
@@ -114,15 +122,7 @@ function Dashboard(props) {
               
             </div>
             
-            <div className="glass-black vertical-space">
-              <div className="glass-black" style={{padding: ".5em"}}><h3>Watchlist</h3></div>
-              <div className="section">
-                
-              </div>
-
-              
-            </div>
-
+           
             <CoinInfo watchlist={watchlist} style={{width: "100%"}} ></CoinInfo>
           
             <div className="">
