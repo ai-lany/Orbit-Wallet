@@ -39,6 +39,7 @@ function Dashboard(props) {
         navigate.replace("/login");
       } else {
         populateQuote();
+        populateWatchlist();
       }
     }
   }, []);
@@ -122,7 +123,7 @@ function Dashboard(props) {
               
             </div>
 
-            <CoinInfo style={{width: "100%"}} count={5}></CoinInfo>
+            <CoinInfo watchlist={watchlist} style={{width: "100%"}} ></CoinInfo>
           
             <div className="">
                 Quote: {quote} <br></br>
