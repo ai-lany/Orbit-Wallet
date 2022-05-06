@@ -16,7 +16,7 @@ function Dashboard(props) {
   const [watchlist, setWatchlist] = useState([])
 
   async function populateQuote() {
-    const req = await fetch("http://orbit-wallet.herokuapp.com/api/quote", {
+    const req = await fetch("https://orbit-wallet.herokuapp.com/api/quote", {
       headers: {
         "x-access-token": localStorage.getItem("token"),
       },
@@ -49,7 +49,7 @@ function Dashboard(props) {
   }, []);
 
   async function populateWatchlist() {
-    const req = await fetch("http://orbit-wallet.herokuapp.com/api/favorite", {
+    const req = await fetch("https://orbit-wallet.herokuapp.com/api/favorite", {
       method: "GET",
       headers: {
         "x-access-token": localStorage.getItem("token"),
@@ -71,7 +71,7 @@ function Dashboard(props) {
   async function updateQuote(event) {
     event.preventDefault();
 
-    const req = await fetch("http://orbit-wallet.herokuapp.com/api/quote", {
+    const req = await fetch("https://orbit-wallet.herokuapp.com/api/quote", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

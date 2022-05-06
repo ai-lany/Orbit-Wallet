@@ -30,7 +30,7 @@ function Info(props) {
     }
   } 
   async function populateFavorite() {
-    const req = await fetch("http://orbit-wallet.herokuapp.com/api/favorite", {
+    const req = await fetch("https://orbit-wallet.herokuapp.com/api/favorite", {
       method: "GET",
       headers: {
         "x-access-token": localStorage.getItem("token"),
@@ -53,7 +53,7 @@ function Info(props) {
 
   async function toggleFavorite(event) {
     event.preventDefault();
-    const req = await fetch("http://orbit-wallet.herokuapp.com/api/favorite", {
+    const req = await fetch("https://orbit-wallet.herokuapp.com/api/favorite", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

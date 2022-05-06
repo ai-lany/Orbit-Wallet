@@ -14,7 +14,7 @@ function SignUp(props) {
 
 async function registerUser(event){
     event.preventDefault();
-    const response = await fetch('http://orbit-wallet.herokuapp.com/api/register', {
+    const response = await fetch('https://orbit-wallet.herokuapp.com/api/register', {
         
         method: 'POST',
         headers:{
