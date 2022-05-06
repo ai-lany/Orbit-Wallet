@@ -13,6 +13,7 @@ function Dashboard(props) {
   const navigate = useNavigate();
   const [quote, setQuote] = useState("");
   const [tempQuote, setTempQuote] = useState("");
+  const [watchlist, setWatchlist] = useState([])
 
   async function populateQuote() {
     const req = await fetch("http://localhost:3001/api/quote", {
@@ -42,6 +43,22 @@ function Dashboard(props) {
     }
   }, []);
 
+  async function populateWatchlist() {
+    const req = await fetch("http://localhost:3001/api/favorite", {
+      method: "GET",
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+        'Accept': 'application/json'
+      },
+    });
+
+    const data = await req.json();
+    if (data.status === "ok") {
+      setWatchlist(data.watchlist);
+    } else {
+      alert(data.error);
+    }
+  }
   async function updateQuote(event) {
     event.preventDefault();
 
@@ -72,30 +89,39 @@ function Dashboard(props) {
           <div  className="d-none d-lg-block dash-nav">
             <ul>
               <li>
-                <Button>Dashboard</Button>
+              <Button href="/dashboard">Dashboard</Button>
               </li>
               <li>
-                <Button>Explore</Button>
+                <Button href="/explore">Explore</Button>
               </li>
               <li>
-                <Button>Help</Button>
+                <Button href="/help">Help</Button>
               </li>
               <li>
-                <Button>Settings</Button>
+                <Button href="/settings">Settings</Button>
                 
               </li>
             </ul>
           </div>
           <Col lg={7}>
             <div className="glass-black vertical-space">
-              <div className="glass-black" style={{padding: ".5em 1em"}}><h3>Portfolio</h3></div>
-              <div className="section" style={{height:" 40vh" }}>
+              <div className="glass-black" style={{padding: ".5em"}}><h3>Portfolio</h3></div>
+              <div className="section" style={{height:" 40vh"}}>
                 <Graph id={'bitcoin'} ></Graph>
               </div>
 
               
             </div>
             
+            <div className="glass-black vertical-space">
+              <div className="glass-black" style={{padding: ".5em"}}><h3>Watchlist</h3></div>
+              <div className="section">
+                
+              </div>
+
+              
+            </div>
+
             <CoinInfo style={{width: "100%"}} count={5}></CoinInfo>
           
             <div className="">

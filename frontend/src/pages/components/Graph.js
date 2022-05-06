@@ -41,7 +41,7 @@ export function Graph(props) {
         if (isMounted.current){
           setCoinData(dayChart)
           const label = dayChart.map(function(x) {
-            return new Date(x[0]);
+            return new Date(x[0]).toLocaleTimeString('en-us', {timeZone: 'UTC', hour: '2-digit', minute: '2-digit'});
           });
           setLabels(label)
         }
@@ -65,6 +65,7 @@ export function Graph(props) {
     };*/
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     animation:{
       duration: 100
     },
@@ -129,7 +130,6 @@ export function Graph(props) {
         outerGlowWidth: [5, 10, 15, 20, 25, 30, 0],
 			  outerGlowColor: 'rgb(255, 99, 132)',
         tension: 0.4,
-        maintainAspectRatio: false,
      },
     ],
   };

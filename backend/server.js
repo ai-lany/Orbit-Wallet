@@ -24,9 +24,8 @@ app.use(express.json())
 
 app.use(express.static(path.resolve(__dirname, "../frontend/build")));
 // Step 2:
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
-});
+
+
 
 // Handle GET requests to /api route
 app.get("/api", (req, res) => {
@@ -125,3 +124,51 @@ app.post('/api/quote', async (req, res) => {
 		res.json({ status: 'error', error: 'invalid token' })
 	}
 })
+
+
+app.get('/api/favorite', async (req, res) => {
+	const token = req.headers['x-access-token']
+
+	try {
+		const decoded = jwt.verify(token, 'secretkey123')
+		const email = decoded.email
+		const user = await User.findOne({ email: email })
+
+		return res.json({ status: 'ok', watchlist: user.watchlist })
+	} catch (error) {
+		console.log(error)
+		res.json({ status: 'error', error: 'invalid token' })
+	}
+})
+
+app.post('/api/favorite', async (req, res) => {
+	const token = req.headers['x-access-token']
+
+	try {
+		const decoded = jwt.verify(token, 'secretkey123')
+		const email = decoded.email
+    const user = await User.findOne({ email: email })
+    if(user.watchlist.includes(req.body.watchlist)){
+      await User.updateOne(
+        { email: email },
+        { $pull: { watchlist: req.body.watchlist } }
+      )
+    }else{
+      await User.updateOne(
+        { email: email },
+        { $push: { watchlist: req.body.watchlist } }
+      )
+    }
+	
+
+		return res.json({ status: 'ok' , watchlist: user.watchlist})
+	} catch (error) {
+		console.log(error)
+		res.json({ status: 'error', error: 'invalid token' })
+	}
+})
+
+
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
+});

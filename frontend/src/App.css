@@ -257,6 +257,8 @@ list-style: none;
     .navbar-toggler{
         z-index: 10;
     }
+
+
     
 
 }
@@ -433,6 +435,9 @@ list-style: none;
 
 .graph-container{
     width: 15em !important;
+    height: 7.5em !important;
+    position: relative;
+    bottom: 1em;
 }
 
 
@@ -466,9 +471,14 @@ list-style: none;
 .info-graph{
     display: inline-flex !important;
     width: 6em !important;
-    height: 4em !important;
+    height: 3.2em !important;
     position: absolute;
     right: 1em;
+}
+.explore-graph{
+    display: inline-flex !important;
+    width: 6em !important;
+    height: 3.2em !important;
 }
 
 .info-graph canvas{

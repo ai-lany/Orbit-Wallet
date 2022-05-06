@@ -21,7 +21,7 @@ function Home(props) {
   return (
     <div className="Home">
       <Header></Header>
-      <Row >
+      <Row style={{height: "95vh"}}>
         <Col lg={8}>
           <h1 style={{}} className="heading text-light d-inline-block">
             Discover, trade, and sell <span>trusted </span>
@@ -37,7 +37,7 @@ function Home(props) {
             <span> cryptocurrencies.</span>
           </h1>
         </Col>
-        <Col lg={4} style={{ margin: "0 0 5vw" }} className="d-inline-block">
+        <Col lg={4}  className="d-inline-block">
           <Eth></Eth>
           <div
             className="d-flex"
@@ -49,9 +49,10 @@ function Home(props) {
           </div>
         </Col>
       </Row>
-      <Row>
+        <div className="mx-auto"  style={{width: "65%"}}>
         <CoinInfo count={5}></CoinInfo>
-      </Row>
+        </div>
+
     </div>
   );
 }
