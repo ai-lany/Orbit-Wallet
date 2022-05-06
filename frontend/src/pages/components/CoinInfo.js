@@ -27,7 +27,7 @@ function CryptoInfo(props) {
     }
 
   }, []);
-  if(!auth){
+  if(!auth || window.location.pathname == '/'){
     return (
       <div className="">
         <div className=" d-block mx-auto">
