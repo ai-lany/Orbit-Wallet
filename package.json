@@ -2,7 +2,6 @@
   "name": "orbit",
   "description": "A customizable cryptocurrency wallet / dashboard",
   "version": "1.0.0",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ailanyEXE/Orbit-Wallet.git"
@@ -17,8 +16,13 @@
     "node": "14.18.0"
   },
   "dependencies": {
+    "@pixi/filter-kawase-blur": "^4.1.5",
+    "debounce": "^1.2.1",
     "dotenv": "^16.0.0",
-    "serve": "^13.0.2"
+    "hsl-to-hex": "^1.0.0",
+    "pixi.js": "^6.3.2",
+    "serve": "^13.0.2",
+    "simplex-noise": "^3.0.1"
   },
   "scripts": {
     "build": "cd frontend && npm run build",

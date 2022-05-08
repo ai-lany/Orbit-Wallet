@@ -2,7 +2,6 @@ import { React, useState } from "react";
 import "./App.css";
 import CryptoList from "./pages/components/CryptoList";
 import Dashboard from "./pages/Dashboard";
-import Header from "./pages/components/Header";
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Login from "./pages/LogIn";
 import SignUp from "./pages/SignUp";

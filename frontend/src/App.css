@@ -91,10 +91,13 @@ h1,h2,h3,h4,h5,h6{
     -webkit-backdrop-filter: blur(7.1px);
     border: 1px solid rgba(0, 0, 0, 0.27);
 }
-
 .btn{
-
+    border-radius: 8px !important;
 }
+.btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
 
 .List ul {
     list-style-type: none;
@@ -160,11 +163,16 @@ hr{
     margin: auto!important;
 }
 
-.signup-nav{
-    background-color: rgba(255, 255, 255, 0.25);
-    color: white;
+.nav-search, .nav-search:focus {
+    background: none;
+    border: solid 1px rgba(255, 255, 255, 0.145)!important;
+    box-shadow: none !important;
+    border-radius: 8px;
+    height: 2.5em;
+    align-self: center;
+    color: #fff;
+    padding: 0 12px;
 }
-
 
 .dash-nav{
     background: none;
@@ -196,21 +204,13 @@ list-style: none;
     align-items: center;
 }
 
+
 .Home, .Login, .Signup{
     position: absolute;
     top: 0;
-    z-index: -1;
+    z-index: 100;
     width: 100vw;
     height: 100vh;
-    background-image: url('../public/assets/front-bg.jpg');
-    background-size: 100vw;
-
-    background-position: fixed;
-
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 
 }
 
@@ -218,23 +218,32 @@ list-style: none;
 
     #landing-widget{
         position:relative;
-        top:25vw;
+        top: min(50vh, 40vw);
         right: 40%;
         padding: 0 !important;
+        z-index: 10;
     }
 
     .login-buttons{
         position: absolute;
-        right: 0;
+        right: 10vw;
         width: 12em;
         display: flex;
+    }
+    .nav-middle{
+        display: flex;
+        position: relative;
+        right: max(2vw, 23%);
+    }
+    .navbar-brand{
+        padding-left: 9vw!important;
     }
 
 }
 @media (max-width: 991px) {
 
     .navbar-collapse{
-        width: min(200px, 40vw);
+        width: min(300px, 50vw);
         position: absolute;
         top: 0;
         right: 0;
@@ -244,18 +253,23 @@ list-style: none;
         border-radius:12px;
         box-shadow: var(--shadow-elevation-medium);
         border: 1px solid rgba(0, 0, 0, 0.27);
-        z-index: 5;
+        z-index: 11;
     }
     .navbar-nav .nav-link {
         border:none;
         background: none !important;
         width: 100%!important;
+        z-index: 11;
+    }
+
+    .nav-link{
+        z-index: 11;
     }
     .signup-nav{
         color:rgb(255, 133, 163)!important;
     }
     .navbar-toggler{
-        z-index: 10;
+        z-index: 100;
     }
 
 
@@ -275,12 +289,36 @@ list-style: none;
     max-width: clamp(50vw, 64vw, 60vw);
     padding-top: 20vh;
     padding-left: 10vw;
-
+    z-index: 100 !important;
 }
 .heading span{
     color: rgb(224, 0, 56);
     font-weight: 500;
+    z-index: 100 !important;
+
+    background: -webkit-linear-gradient(left, #7e3ae3, #e33a51, #fff652, #e33a51, #7e3ae3);
+    background-size: 2000px 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation-duration: 7s;
+          animation-duration: 7s;
+  -webkit-animation-name: animationgradienttitle;
+          animation-name: animationgradienttitle;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+
 }
+
+@keyframes animationgradienttitle {
+    0% {
+      background-position: 0 2000px;
+    }
+    100% {
+      background-position: 2000px 0;
+    }
+  }
 .heading img{
     display: inline!important;
     font-size: 0;
@@ -351,21 +389,14 @@ list-style: none;
 
 .form-control::placeholder{
     color: rgb(102, 102, 102);
-    
-}
-
-#nav{
-    display: block !important;
-    background: none;
-    width: 100vw !important;    
 }
 
 #navbar{
   transition: top 0.4s;
   top: 0;
-  border: solid rgba(255, 255, 255, 0.25);
-  border-width: 0  0 1px;
   height: 3.6em !important;
+  z-index: 10;
+  
 }
 
 .navbar-toggler{
@@ -416,9 +447,7 @@ list-style: none;
 
   .nav-link{
       padding: 1em 1.5em!important;
-      border:solid rgba(255, 255, 255, 0.25);
-      border-width: 0 .5px;
-      height: 3.6em !important;
+      height: 2.5em !important;
   }
 
  .tab{
@@ -500,4 +529,42 @@ list-style: none;
 
 .Dashboard{
    
+}
+
+
+
+/* BG BLUR */
+
+   .bg-blur {
+       height: 100vh;
+       width: 100vw;
+       backdrop-filter: blur(10.1px);
+       -webkit-backdrop-filter: blur(10.1px);
+       z-index: 2;
+     position: absolute;
+     top: 0;
+     }
+   
+
+.btn-purp{
+    background: linear-gradient(40deg, rgb(94, 42, 215), rgb(220, 73, 104));
+    background-size: 200%;
+    border-radius: 6px;
+    color: black!important;
+}
+.btn-purp:hover{
+    background: linear-gradient(40deg, rgb(136, 96, 230), rgb(241, 113, 140));
+    background-size: 200%;
+    border-radius: 6px;
+    color: black!important;
+}
+
+.border-none{
+    border: none !important;
+}
+
+.dashnav-btn{
+    margin: .5em 0!important;
+    color: rgb(149, 149, 149);
+    text-align: left;
 }

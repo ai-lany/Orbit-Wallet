@@ -15,11 +15,16 @@ export function Graph(props) {
   const [labels, setLabels] = useState([])
   const change = props.change;
   var color;
-  if (change > 0){
-    color = "#52f268";
+  if(props.type == "portfolio"){
+    color = "pink";
   }else{
-    color = "#f25252";
+    if (change > 0){
+      color = "#52f268";
+    }else{
+      color = "#f25252";
+    }
   }
+  
 
   useEffect(() => {
     if (isMounted.current){getInfo();}

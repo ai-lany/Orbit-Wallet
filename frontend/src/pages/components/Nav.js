@@ -1,12 +1,12 @@
-import "../../App.css";
+import "./Nav.css";
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
-import { PersonFill } from "react-bootstrap-icons";
+import { PersonFill, Search } from "react-bootstrap-icons";
 import Star from "../../assets/star.svg";
 import jwtDecode from "jwt-decode";
 
-function Header(props) {
+function NavBar(props) {
   const navigate = useNavigate();
   const [auth, setAuth] = useState();
   const [user, setUser] = useState({})
@@ -55,13 +55,19 @@ function Header(props) {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav"  onClick={toggleNav}/>
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="">
+          <Nav  className="">
+            <div className="nav-middle">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-
+            <Nav.Link href="#link">Features</Nav.Link>
+          <div className="d-flex">
+          <input type="text" className="nav-search"></input><Search style={{position: "relative", right: "2em", alignSelf:"center"}} size={14} color="white"></Search>
+          </div>
+            </div>
+            
+           
             <div className="login-buttons">
               <Nav.Link href="/login">LogIn</Nav.Link>
-              <Nav.Link className="signup-nav" href="/signup">
+              <Nav.Link className="signup-nav btn-purp" href="/signup">
                 SignUp
               </Nav.Link>
             </div>
@@ -119,4 +125,4 @@ function Header(props) {
   }
 }
 
-export default Header;
+export default NavBar;
