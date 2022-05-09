@@ -163,16 +163,7 @@ hr{
     margin: auto!important;
 }
 
-.nav-search, .nav-search:focus {
-    background: none;
-    border: solid 1px rgba(255, 255, 255, 0.145)!important;
-    box-shadow: none !important;
-    border-radius: 8px;
-    height: 2.5em;
-    align-self: center;
-    color: #fff;
-    padding: 0 12px;
-}
+
 
 .dash-nav{
     background: none;
@@ -296,7 +287,7 @@ list-style: none;
     font-weight: 500;
     z-index: 100 !important;
 
-    background: -webkit-linear-gradient(left, #7e3ae3, #e33a51, #fff652, #e33a51, #7e3ae3);
+    background: -webkit-linear-gradient(left, #f99696, #ffd664, #86f5bb, #8469ef, #f99696);
     background-size: 2000px 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -546,18 +537,7 @@ list-style: none;
      }
    
 
-.btn-purp{
-    background: linear-gradient(40deg, rgb(94, 42, 215), rgb(220, 73, 104));
-    background-size: 200%;
-    border-radius: 6px;
-    color: black!important;
-}
-.btn-purp:hover{
-    background: linear-gradient(40deg, rgb(136, 96, 230), rgb(241, 113, 140));
-    background-size: 200%;
-    border-radius: 6px;
-    color: black!important;
-}
+
 
 .border-none{
     border: none !important;
@@ -568,3 +548,12 @@ list-style: none;
     color: rgb(149, 149, 149);
     text-align: left;
 }
+
+canvas{
+    width: 100%;
+    height: 100%;
+}
+.Home canvas{
+    position: fixed;
+}
+

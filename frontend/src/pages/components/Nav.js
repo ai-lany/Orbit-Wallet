@@ -5,6 +5,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import { PersonFill, Search } from "react-bootstrap-icons";
 import Star from "../../assets/star.svg";
 import jwtDecode from "jwt-decode";
+import {Stars} from "../../assets/Icons"
 
 function NavBar(props) {
   const navigate = useNavigate();
@@ -66,7 +67,7 @@ function NavBar(props) {
             
            
             <div className="login-buttons">
-              <Nav.Link href="/login">LogIn</Nav.Link>
+            <Nav.Link href="/login">LogIn</Nav.Link>
               <Nav.Link className="signup-nav btn-purp" href="/signup">
                 SignUp
               </Nav.Link>
@@ -95,11 +96,8 @@ function NavBar(props) {
         variant="dark"
         expand="lg"
       >
-        <Navbar.Brand href="/dashboard">
-          <img
-            style={{ height: "2em", padding: "0 0 .3em" }}
-            src={Star}>
-          </img>
+        <Navbar.Brand  href="/dashboard">
+          <Stars></Stars>
           Orbit
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={toggleNav}  />

@@ -17,7 +17,7 @@ const simplex = new SimplexNoise();
 // Orb class
 export default class Orb {
 
-    setBounds(xPos, yPos) {
+    setBounds() {
         // how far from the { x, y } origin can each orb move
         const maxDist =
             window.innerWidth < 1000 ? window.innerWidth / 3 : window.innerWidth / 5;
@@ -100,7 +100,7 @@ export default class Orb {
   
       // PIXI.Graphics is used to draw 2d primitives (in this case a circle) to the canvas
       this.graphics = new PIXI.Graphics();
-      this.graphics.alpha = 0.3;
+      this.graphics.alpha = 0.1;
         
 
       
@@ -128,8 +128,8 @@ export default class Orb {
       this.complimentaryHue1 = this.hue + 30;
       this.complimentaryHue2 = this.hue + 60;
       // define a fixed saturation and lightness
-      this.saturation = 95;
-      this.lightness = 40;
+      this.saturation = 70;
+      this.lightness = 60;
   
       // define a base color
       this.baseColor = hsl(this.hue, this.saturation, this.lightness);

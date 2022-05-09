@@ -9,12 +9,14 @@ import useIsMounted from '../../useIsMounted';
 const label = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 
+
 export function Graph(props) {
   const isMounted = useIsMounted();
   const [coinData, setCoinData] = useState([])
   const [labels, setLabels] = useState([])
   const change = props.change;
   var color;
+  
   if(props.type == "portfolio"){
     color = "pink";
   }else{

@@ -83,17 +83,20 @@ h1,h2,h3,h4,h5,h6{
     margin: auto!important;
 }
 
-.nav-search, .nav-search:focus {
-    background: none;
-    border: solid 1px rgba(255, 255, 255, 0.145)!important;
-    box-shadow: none !important;
-    border-radius: 8px;
-    height: 2.5em;
-    align-self: center;
-    color: #fff;
-    padding: 0 12px;
+.nav-search{
+  background: none;
+  border: solid 1px rgba(255, 255, 255, 0.145)!important;
+  box-shadow: none !important;
+  border-radius: 8px;
+  height: 2.5em;
+  align-self: center;
+  color: #fff;
+  padding: 0 12px;
 }
-
+.nav-search:focus{
+  border:none !important;
+  box-shadow: none !important;
+}
 
 @media (min-width: 992px) {
 
@@ -220,11 +223,11 @@ h1,h2,h3,h4,h5,h6{
         color: transparent;
         width: 0%;
         content: '';
-        height: 3px;
+        height: 2px;
         transition: all 0.5s;
   }
   .navbar .navbar-nav .nav-link:hover::after {
-    width: 100%;
+    width: 50%;
   }
 
   .nav-item span{
@@ -237,7 +240,16 @@ h1,h2,h3,h4,h5,h6{
   }
 
 .btn-purp{
-    background: linear-gradient(40deg, rgb(94, 42, 215), rgb(220, 73, 104));
-    background-size: 200%;
+    background: url('../../assets/holo_rainbow_1.png');
+    background-size:100%;
+    background-position: 20% ;
     border-radius: 6px;
+    color:black  !important;
+}
+.btn-purp:hover{
+  background: url('../../assets/holo_rainbow_1.png');
+  background-size:100%;
+  background-position: 20% ;
+  border-radius: 6px;
+  color: black!important;
 }

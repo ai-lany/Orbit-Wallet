@@ -95,7 +95,7 @@ function Home(props) {
           </div>
         </Col>
       </Row>
-      <div className="mx-auto" style={{ width: "65%" }}>
+      <div  style={{position:"absolute",top:"100vh", right:"18vw", width: "65%", margin: "0 auto" }}>
         <CoinInfo count={5}></CoinInfo>
       </div>
     </div>

@@ -173,7 +173,7 @@ function Info(props) {
             <Graph className="" id={name} change={change}></Graph>
           </div>
           <div style={{flex: "0 10%", position:"absolute",right:".5em"}}>
-           <button className="btn text-light" onClick={toggleFavorite}> <Favorite favorite={favorite}/></button>
+           <button className="btn text-light" onClick={()=>{toggleFavorite()}}> <Favorite favorite={favorite}/></button>
           </div>
   
         <hr></hr>
