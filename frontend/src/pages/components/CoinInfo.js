@@ -10,7 +10,6 @@ function CryptoInfo(props) {
   const [auth, setAuth] = useState();
   const [user, setUser] = useState({});
   const [watchlist, setWatchlist] = useState();
-  
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -100,7 +99,7 @@ function CryptoInfo(props) {
                 return (
                     <Info  name={data} id={index+1} />
                 );
-              })}
+                })}
           </div>
         </div>
       </div>

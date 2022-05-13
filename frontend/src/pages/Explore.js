@@ -18,11 +18,11 @@ function Explore(props) {
     <div className="Explore" style={{ width: "100vw" }}>
       <NavBar auth={true}></NavBar>
       <Container style={{ width: "100vw" }}>
-        <Row className="mx-auto"style={{ width: "90vw" }}>
-        <Col  lg={2}>
+        <Row className="mx-auto"style={{ width: "100vw" }}>
+        <Col  lg={2} className="DashNav">
         <DashNav loc= "explore"></DashNav>
         </Col>
-          <Col lg={10}>
+          <Col lg={9}>
     
             <CoinInfo style={{width: "100%"}} count={15}></CoinInfo>
           

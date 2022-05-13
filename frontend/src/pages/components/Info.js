@@ -5,7 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { Graph } from "./Graph";
 import jwtDecode from "jwt-decode";
-import {SuitHeart, SuitHeartFill } from "react-bootstrap-icons";
+import {SuitHeart, SuitHeartFill } from "../../assets/Icons";
 import { Link } from "react-router-dom";
 import Coin from "../Coin";
 
@@ -22,6 +22,7 @@ function Info(props) {
   const [auth, setAuth] = useState();
   const [user, setUser] = useState({})
   const [favorite, setFavorite] = useState()
+  const [isLoading, setIsLoading] = useState(false);
 
 
   function  Favorite(props){
@@ -100,10 +101,11 @@ function Info(props) {
           }
         }
       })
-      .catch((error) => console.error("error: " + error));
+      .catch((error) => console.error("error: " + error)).finally(setIsLoading(false));
   };
 
   useEffect(() => {
+    setIsLoading(true);
     const token = localStorage.getItem("token");
     if (token) {
       const user = jwtDecode(token);
@@ -116,75 +118,77 @@ function Info(props) {
         populateFavorite();
       }
     }
+    
     getInfo();
+
   }, []);
 
   if(!auth){
-    return (
-      <div className="d-flex coinlist-item " style={{width: "100%"}}>
+    return (<div> {isLoading? (<p></p>) : (<div className="d-flex coinlist-item " style={{width: "100%"}}>
         
-        <h5
-          className=""
-          style={{ flex: "0 3%"}}
-        >
-          {props.id}
-        </h5>
-        <img src={icon} style={{ flex: "0 2%", padding: "0 .5em 0 1em" }}></img>
-        
-        <div className="" style={{ flex: "0 30%" }}>
-          <h5 className="d-inline">{props.name}&nbsp;</h5> {symbol}
-        </div>
-      
-        <div style={{ flex: "0 20%"  }}>${price}</div>
-        <div style={{ flex: "0 15%" , color: color }}>
-          {Math.round((change + Number.EPSILON) * 100) / 100}%
-        </div>
-        <div className="d-none d-xl-block " style={{flex: "0 10%" , color: color }}>
-          {Math.round((marketCap + Number.EPSILON) * 100) / 100}%
-        </div>
-        <div style={{flex: "0 15%"  }} className="info-graph">
-            <Graph className="" id={name} change={change}></Graph>
-          </div>
+    <h5
+      className=""
+      style={{ flex: "0 3%"}}
+    >
+      {props.id}
+    </h5>
+    <img src={icon} style={{ flex: "0 2%", padding: "0 .5em 0 1em" }}></img>
+    
+    <div className="" style={{ flex: "0 30%" }}>
+      <h5 className="d-inline">{props.name}&nbsp;</h5> {symbol}
+    </div>
   
-        <hr></hr>
-        
+    <div style={{ flex: "0 20%"  }}>${price}</div>
+    <div style={{ flex: "0 15%" , color: color }}>
+      {Math.round((change + Number.EPSILON) * 100) / 100}%
+    </div>
+    <div className="d-none d-xl-block " style={{flex: "0 10%" , color: color }}>
+      {Math.round((marketCap + Number.EPSILON) * 100) / 100}%
+    </div>
+    <div style={{flex: "0 15%"  }} className="info-graph">
+        <Graph className="" id={name} xAxis={false} change={change}></Graph>
       </div>
+
+    <hr></hr>
+    
+  </div>)} </div>
+      
     );
   }else{
-    return (
-      <div className="d-flex coinlist-item " style={{width: "100%"}}>
+    return (<div>{isLoading ? (<p>  </p>) :(<div className="d-flex coinlist-item " style={{width: "100%"}}>
         
-        <h5
-          className=""
-          style={{ flex: "0 3%"}}
-        >
-          {props.id}
-        </h5>
+    <h5
+      className=""
+      style={{ flex: "0 3%"}}
+    >
+      {props.id}
+    </h5>
 
-        <Link to={"/coin/"+name}>  <img className=" coin-img" src={icon} style={{ flex: "0 2%", padding: "0 .5em 0 1em" }}></img>
-         </Link>
-         
-        <div className="btn text-light" style={{textAlign:"left", flex: "0 30%" }}>
-        <Link to={"/coin/"+name}> <h5 className="d-inline ">{name}&nbsp;</h5> <p  className="d-inline ">{symbol}</p>
-         </Link>
-          
-        </div>
+    <Link to={"/coin/"+name}>  <img className=" coin-img" src={icon} style={{ flex: "0 2%", padding: "0 .5em 0 1em" }}></img>
+     </Link>
+     
+    <div className="btn text-light" style={{textAlign:"left", flex: "0 30%" }}>
+    <Link to={"/coin/"+name}> <h5 className="d-inline ">{name}&nbsp;</h5> <p  className="d-inline ">{symbol}</p>
+     </Link>
       
-        <div style={{ flex: "0 20%"  }}>${price}</div>
-        <div style={{ flex: "0 15%" , color: color }}>
-          {Math.round((change + Number.EPSILON) * 100) / 100}%
-        </div>
-        <div style={{flex: "0 10%"}} className="explore-graph">
-          
-        <Graph className="" id={name} change={change}></Graph>
-          </div>
-          <div style={{flex: "0 10%", position:"absolute",right:".5em"}}>
-           <button className="btn text-light" onClick={()=>{toggleFavorite()}}> <Favorite favorite={favorite}/></button>
-          </div>
+    </div>
   
-        <hr></hr>
-        
+    <div style={{ flex: "0 20%"  }}>${price}</div>
+    <div style={{ flex: "0 15%" , color: color }}>
+      {Math.round((change + Number.EPSILON) * 100) / 100}%
+    </div>
+    <div style={{flex: "0 10%"}} className="explore-graph">
+      
+    <Graph className="" id={name} xAxis={false} change={change}></Graph>
       </div>
+      <div style={{flex: "0 10%", position:"absolute",right:".5em"}}>
+       <button className="btn text-light" onClick={()=>{toggleFavorite()}}> <Favorite favorite={favorite}/></button>
+      </div>
+
+    <hr></hr>
+    
+  </div>)}</div>
+      
     );
   }
 

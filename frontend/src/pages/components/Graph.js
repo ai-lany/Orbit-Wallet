@@ -18,7 +18,7 @@ export function Graph(props) {
   const change = props.change;
   var color;
   
-  if(props.type == "portfolio"){
+  if(props.type == "portfolio" || props.type == "coin" ){
     color = "pink";
   }else{
     if (change > 0){
@@ -52,6 +52,7 @@ export function Graph(props) {
             return new Date(x[0]).toLocaleTimeString('en-us', {timeZone: 'UTC', hour: '2-digit', minute: '2-digit'});
           });
           setLabels(label)
+        
         }
       })
       .catch(error=> console.error('error: ' + error));
@@ -83,9 +84,7 @@ export function Graph(props) {
       duration: 100
     },
     layout: {
-      padding: {
-        bottom: 20
-      },
+
     },
     type: 'line',
     scales: {
@@ -98,14 +97,22 @@ export function Graph(props) {
           display: false
         }
       },
-      xAxis: {
-        display: false,
+      xAxes: {
+        display: props.xAxis,
         ticks:{
-          display: false
+          display: true,
+          maxRotation: 0,
+          align: "start",
+          autoSkip: false,
+          callback: function(val, index) {
+            // Hide every 2nd tick label
+            return index % (64 )=== 0 ? this.getLabelForValue(val) : '';
+          },
         },
         grid: {
-          display: false
-        }
+          display: false,
+          align: "end",
+        },
       },
     },
     plugins: {

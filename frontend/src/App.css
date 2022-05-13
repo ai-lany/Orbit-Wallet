@@ -174,11 +174,6 @@ hr{
 
 
 
-.dash-nav{
-    background: none;
-    height: 100vh;
-    width: 15%;
-}
 .dash-main{
     background: lightblue;
     padding: 1.2em;
@@ -500,14 +495,14 @@ list-style: none;
 .info-graph{
     display: inline-flex !important;
     width: 6em !important;
-    height: 3.2em !important;
+    height: 2.5em !important;
     position: absolute;
     right: 1em;
 }
 .explore-graph{
     display: inline-flex !important;
     width: 6em !important;
-    height: 3.2em !important;
+    height: 2.5em !important;
 }
 
 .info-graph canvas{
@@ -517,17 +512,9 @@ list-style: none;
 
 
 
-.dash-nav button{
-    background-color: rgba(0, 0, 0, 0.75);
-    border: solid 1px black;
-    width: 100%;
-    padding: auto ;
-    margin:0 0 1em  !important;
-    font-size: 1.2em;
 
-}
 
-.Dashboard .container{
+.Dashboard .container, .Explore .container{
     margin-top: 1em!important;
 }
 
@@ -590,4 +577,5 @@ canvas{
 }
 .DashNav{
     margin: 0 1em!important;
+    width: 15em !important;
 }

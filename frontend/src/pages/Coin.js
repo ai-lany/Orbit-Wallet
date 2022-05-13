@@ -16,8 +16,9 @@ import DashNav from "./components/DashNav";
 import { Graph } from "./components/Graph";
 import CoinInfo from "./components/CoinInfo";
 import axios from "axios";
+import { SuitHeart, SuitHeartFill, PlusCircle, CheckCircleFill } from "../assets/Icons";
 
-function Coin(props) {
+function Coin() {
   const { name } = useParams();
   const [radioValue, setRadioValue] = useState("1");
   const isMounted = useIsMounted();
@@ -25,6 +26,24 @@ function Coin(props) {
   const [change, setChange] = useState("");
   const [icon, setIcon] = useState("");
   const [symbol, setSymbol] = useState("");
+    const [favorite, setFavorite] = useState(false)
+    const [widget, setWidget] = useState(false)
+
+  function  Favorite(props){
+    if(!props.favorite){
+      return <SuitHeart size={18}/>
+    }else{
+      return <SuitHeartFill size={18}/>
+    }
+  } 
+
+  function WidgetBtn(props){
+    if(!props.widget){
+        return <PlusCircle size={18}/>
+      }else{
+        return <CheckCircleFill size={18}/>
+      }
+  }
 
   const radios = [
     { name: "1D", value: "1" },
@@ -55,9 +74,55 @@ function Coin(props) {
       .catch((error) => console.error("error: " + error));
   };
 
+  async function populateFavorite() {
+    const req = await fetch("http://localhost:3001/api/favorite", {
+      method: "GET",
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+        'Accept': 'application/json'
+      },
+    });
+
+    const data = await req.json();
+    if (data.status === "ok") {
+      if(data.watchlist.includes(name)){
+        setFavorite(true)
+      }else{
+        setFavorite(false)
+      }
+    } else {
+      alert(data.error);
+    }
+  }
+ 
+
+  async function toggleFavorite() {
+    const req = await fetch("http://localhost:3001/api/favorite", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        watchlist: name,
+      }),
+    });
+
+    const data = await req.json();
+    if (data.status === "ok") {
+      setFavorite(!favorite)
+    } else {
+      alert(data.error);
+    }
+  }
+
+  function toggleWidget(){
+
+  }
   useEffect(() => {
     if (isMounted.current) {
       getInfo();
+      populateFavorite();
     }
   });
 
@@ -93,7 +158,10 @@ function Coin(props) {
                     {name}
                   </h1>
                   <h3 className="d-inline text-grey">{symbol.toUpperCase()}</h3>
-                  <h3 className="d-inline text-white" style={{position: "absolute", right: "1em"}}>+</h3>
+                  <h3 className="d-inline text-white" style={{position: "absolute", right: "1em"}}>  
+                     <button className="btn text-light" onClick={toggleFavorite}><Favorite favorite = {favorite}></Favorite></button> 
+                     <button className="btn text-light" onClick={() => {setWidget(!widget)}}> <WidgetBtn widget ={widget}/></button>
+                  </h3>
                   <div
                     style={{
                       flex: "0 50%",
@@ -127,11 +195,11 @@ function Coin(props) {
 
               <hr></hr>
               <div className="section" style={{ height: " 40vh" }}>
-                <Graph id={name}></Graph>
+                <Graph id={name} type="coin"></Graph>
               </div>
             </div>
             <div className="glass-black vertical-space">
-              <h2> {name}</h2>
+              <h3> Market Stats</h3>
             </div>
           </Col>
           <Col lg={3}>
