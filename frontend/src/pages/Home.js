@@ -6,11 +6,10 @@ import { Graph } from "./components/Graph";
 import Widget from "./components/Widget";
 import SignUp from "./SignUp";
 import Eth from "./components/Eth";
-import CryptoList from "./components/CryptoList";
 import CoinInfo from "./components/CoinInfo";
 import Arrows from "../assets/shape-71.svg";
 import NavBar from "./components/Nav";
-import Orb, {ColorPalette} from "./components/Orb";
+import Orb, {ColorPalette, Orb2} from "./components/Orb";
 import * as PIXI from "pixi.js";
 import { KawaseBlurFilter } from "@pixi/filter-kawase-blur";
 
@@ -33,13 +32,17 @@ function Home(props) {
     });
     const orbs = [];
     const colorPalette = new ColorPalette();
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 20; i++) {
+      if(i<10){
+        const orb = new Orb(colorPalette.randomColor());
+        app.stage.addChild(orb.graphics);
+        orbs.push(orb);
+      }else{
+        const orb = new Orb2(colorPalette.randomColor());
+        app.stage.addChild(orb.graphics);
+        orbs.push(orb);
+      }
       
-      // each orb will be black, just for now
-      const orb = new Orb(colorPalette.randomColor());
-      app.stage.addChild(orb.graphics);
-
-      orbs.push(orb);
     }
     // Animate!
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

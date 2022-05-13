@@ -18,22 +18,17 @@ function Explore(props) {
     <div className="Explore" style={{ width: "100vw" }}>
       <NavBar auth={true}></NavBar>
       <Container style={{ width: "100vw" }}>
-        <Row style={{ width: "100vw" }}>
+        <Row className="mx-auto"style={{ width: "90vw" }}>
+        <Col  lg={2}>
         <DashNav loc= "explore"></DashNav>
-          <Col lg={7}>
+        </Col>
+          <Col lg={10}>
     
             <CoinInfo style={{width: "100%"}} count={15}></CoinInfo>
           
         
           </Col>
-          <Col lg={3}>
-            <div className="glass-black ">
-              <div className="glass-black">
-               <h3 style={{padding: ".25em .5em"}}>.</h3>
-              </div>
-              sldkfnslkdf
-            </div>
-          </Col>
+          
         </Row>
       </Container>
     </div>

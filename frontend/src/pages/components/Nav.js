@@ -111,7 +111,7 @@ function NavBar(props) {
               {user.firstName}
               
               </div>
-            <Nav.Link
+            <Nav.Link className="my-auto "
               onClick={handleLogout}
               href="/">
               Log Out

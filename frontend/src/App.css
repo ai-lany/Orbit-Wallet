@@ -6,7 +6,14 @@
 }
 
 h1,h2,h3,h4,h5,h6{
-    color: rgb(249, 241, 227);
+    color: rgb(249, 249, 249);
+}
+
+p{
+    color:rgb(177, 181, 184);
+}
+.text-grey{
+    color: rgb(149, 149, 149);
 }
 
 
@@ -59,7 +66,9 @@ h1,h2,h3,h4,h5,h6{
 .search{
     padding: 1em;
 }
-
+a{
+    text-decoration: none;
+}
 
 #standard-search{
     width: 15em;
@@ -484,8 +493,8 @@ list-style: none;
     border-bottom: solid 1px rgba(255, 255, 255, 0.062);
 }
 
-.coinlist-item img{
-    height: 80%;
+.coin-img{
+    height: 2em;
 }
 
 .info-graph{
@@ -518,8 +527,8 @@ list-style: none;
 
 }
 
-.Dashboard{
-   
+.Dashboard .container{
+    margin-top: 1em!important;
 }
 
 
@@ -547,13 +556,38 @@ list-style: none;
     margin: .5em 0!important;
     color: rgb(149, 149, 149);
     text-align: left;
+}.dashnav-btn:hover{
+   background-color: rgb(32, 30, 34) !important;
 }
+
 
 canvas{
     width: 100%;
     height: 100%;
 }
-.Home canvas{
+.orb-canvas{
     position: fixed;
+    top: 0;
 }
 
+.btn-group .btn-outline-dark{
+    border: none !important;
+    color: rgb(194, 191, 182) !important;
+    padding: .2em 1em .2em;
+}
+.btn-group>.btn-check:checked+.btn{
+    background-color: black !important;
+    color: white !important;
+}
+.btn-group{
+    background-color: rgb(24, 22, 26);
+    border-radius: 8px;
+    padding: 3px;
+}
+
+.dash-nav svg{
+    margin: 0 .4em  .2em 0!important;
+}
+.DashNav{
+    margin: 0 1em!important;
+}

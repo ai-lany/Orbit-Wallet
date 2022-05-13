@@ -4,7 +4,8 @@ import{ChartData, ChartArea} from 'chart.js'
 import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 import useIsMounted from '../../useIsMounted';
-
+import 'chartjs-plugin-style';
+import { premultiplyRgba, rgb2hex } from '@pixi/utils';
 
 const label = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -70,6 +71,11 @@ export function Graph(props) {
           return day;
       }
     };*/
+
+  
+
+
+
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -133,9 +139,9 @@ export function Graph(props) {
         data: coinData,
         borderColor: color,
         pointBackgroundColor: color,
+        outerGlowWidth: 10,
+        outerGlowColor: 'rgba(255,255,255)',
         pointRadius: 1,
-        outerGlowWidth: [5, 10, 15, 20, 25, 30, 0],
-			  outerGlowColor: 'rgb(255, 99, 132)',
         tension: 0.4,
      },
     ],

@@ -5,7 +5,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { Graph } from "./Graph";
 import jwtDecode from "jwt-decode";
-import { SuitHeart, SuitHeartFill } from "react-bootstrap-icons";
+import {SuitHeart, SuitHeartFill } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
+import Coin from "../Coin";
 
 
 function Info(props) {
@@ -51,8 +53,7 @@ function Info(props) {
   }
  
 
-  async function toggleFavorite(event) {
-    event.preventDefault();
+  async function toggleFavorite() {
     const req = await fetch("http://localhost:3001/api/favorite", {
       method: "POST",
       headers: {
@@ -159,10 +160,14 @@ function Info(props) {
         >
           {props.id}
         </h5>
-        <img src={icon} style={{ flex: "0 2%", padding: "0 .5em 0 1em" }}></img>
-        
-        <div className="" style={{ flex: "0 30%" }}>
-          <h5 className="d-inline">{props.name}&nbsp;</h5> {symbol}
+
+        <Link to={"/coin/"+name}>  <img className=" coin-img" src={icon} style={{ flex: "0 2%", padding: "0 .5em 0 1em" }}></img>
+         </Link>
+         
+        <div className="btn text-light" style={{textAlign:"left", flex: "0 30%" }}>
+        <Link to={"/coin/"+name}> <h5 className="d-inline ">{name}&nbsp;</h5> <p  className="d-inline ">{symbol}</p>
+         </Link>
+          
         </div>
       
         <div style={{ flex: "0 20%"  }}>${price}</div>
@@ -170,7 +175,8 @@ function Info(props) {
           {Math.round((change + Number.EPSILON) * 100) / 100}%
         </div>
         <div style={{flex: "0 10%"}} className="explore-graph">
-            <Graph className="" id={name} change={change}></Graph>
+          
+        <Graph className="" id={name} change={change}></Graph>
           </div>
           <div style={{flex: "0 10%", position:"absolute",right:".5em"}}>
            <button className="btn text-light" onClick={()=>{toggleFavorite()}}> <Favorite favorite={favorite}/></button>

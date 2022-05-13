@@ -93,7 +93,7 @@ function CryptoInfo(props) {
           <div className="d-none d-sm-block glass-black text-light " style={{overflow:"hidden"}}>
             
             <div className="d-flex glass-black" style={{zIndex:"2", width: "100%", height: "3em", padding: ".3em 1em .5em"}}>
-             <h3>Watchlist</h3> <h3 style={{position:"absolute", right: ".5em", top:"0"}}>...</h3>
+             <h3>Watchlist</h3> <h3 style={{position:"absolute", right: ".5em", top:"0"}}>  <a href="#" className="text-grey">...</a></h3>
             </div>
             {props.watchlist.map((data, index) => {
                
