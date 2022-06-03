@@ -5,10 +5,10 @@ const userSchema = new mongoose.Schema(
         firstName: {
             type: String,
             required: true,
-            unique: true
         },
         lastName:{
-            
+            type: String,
+            required: false,
         },
         email: {
             type: String,
@@ -23,15 +23,17 @@ const userSchema = new mongoose.Schema(
             type: Date,
             default: Date.now
         },
-        quote: { type: String },
         coins_owned: {
             type: Array,
+            default: []
         },
         watchlist: {
             type: Array,
+            default: []
         },
         widgets: {
             type: Array,
+            default: []
         }
     },
     { collection: 'users'}
