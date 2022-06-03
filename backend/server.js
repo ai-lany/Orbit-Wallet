@@ -12,6 +12,7 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING,
 {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useCreateIndex: true 
 }
 ).then(() => console.log("MongoDB has been started.")).catch((err) => console.log(err))
 
