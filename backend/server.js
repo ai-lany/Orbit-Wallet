@@ -5,16 +5,6 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const path = require('path')
 
-const mongoose = require('mongoose');
-const User = require('./models/userModel');
-require("dotenv").config()
-mongoose.connect(process.env.MONGODB_CONNECTION_STRING,
-{
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true 
-}
-).then(() => console.log("MongoDB has been started.")).catch((err) => console.log(err))
 
 
 const app = express();
@@ -25,6 +15,17 @@ app.use(express.json())
 
 app.use(express.static(path.resolve(__dirname, "../frontend/build")));
 // Step 2:
+
+const mongoose = require('mongoose');
+const User = require('./models/userModel');
+require("dotenv").config()
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING,
+{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true 
+}
+).then(() => console.log("MongoDB has been started.")).catch((err) => console.log(err))
 
 
 
