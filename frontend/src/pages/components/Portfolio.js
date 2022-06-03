@@ -4,135 +4,95 @@ import{ChartData, ChartArea} from 'chart.js'
 import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 import useIsMounted from '../../useIsMounted';
-
+import 'chartjs-plugin-style';
+import { ButtonGroup, ToggleButton } from 'react-bootstrap';
+import { Graph } from './Graph';
 
 const label = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 
-export default function Graph(props) {
-  const isMounted = useIsMounted();
-  const [coinData, setCoinData] = useState([])
-  const [labels, setLabels] = useState([])
+
+export default function Portfolio(props) {
+  const [coinData, setCoinData] = useState([]);
+  const [labels, setLabels] = useState([]);
+  const [radioValue, setRadioValue] = useState('1');
   const change = props.change;
-  var color;
-  if (change > 0){
-    color = "#52f268";
-  }else{
-    color = "#f25252";
-  }
-
-  useEffect(() => {
-    if (isMounted.current){getInfo();}
-  },[]);
-
-  const formatData = coinData => {
-    return coinData.map(el => {
-      return{
-        time: el[0],
-        price: el[1]
-      }
-    })
-  }
-
-  const getInfo = () => {
-    axios.get("https://api.coingecko.com/api/v3/coins/" + (props.id).toLowerCase() + "/market_chart?vs_currency=usd&days=1")
-    .then(response => {
-        var dayChart = response.data.prices
-        if (isMounted.current){
-          setCoinData(dayChart)
-          const label = dayChart.map(function(x) {
-            return new Date(x[0]);
-          });
-          setLabels(label)
-        }
-      })
-      .catch(error=> console.error('error: ' + error));
-    };
+  const [days, setDays] = useState('1')
+  var color="pink"
+  
+  
+     useEffect(() => {
+      setDays(getInfo(radioValue))
+      console.log(days)
+     });
 
 
   
-    /*const determineTimeFormat = () => {
-      switch (timeFormat) {
-        case "24h":
-          return day;
-        case "7d":
-          return week;
-        case "1y":
-          return year;
-        default:
-          return day;
-      }
-    };*/
-  const options = {
-    responsive: true,
-    animation:{
-      duration: 100
-    },
-    layout: {
-      padding: {
-        bottom: 20
-      },
-    },
-    type: 'line',
-    scales: {
-      yAxes: {
-        display: false,
-        ticks: {
-          display: false
-        },
-        grid: {
-          display: false
-        }
-      },
-      xAxis: {
-        display: false,
-        ticks:{
-          display: false
-        },
-        grid: {
-          display: false
-        }
-      },
-    },
-    plugins: {
-      tooltip:{
-        displayColors: false,
-        callbacks: {
-          label: function(context) {
-              let label = context.dataset.label || '';
+     const radios = [
+      { name: '1D', value: '1' },
+      { name: '7D', value: '2' },
+      { name: '1M', value: '3' },
+      { name: '6M', value: '4' },
+      { name: '1Y', value: '5' }
+    ];
 
-              if (label) {
-                  label += ': ';
-              }
-              if (context.parsed.y !== null) {
-                  label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
-              }
-              return label;
-          }
-      }
-      },
-      legend:{
-        display: false
-      },
+
+  const getInfo = (radio) => {
+    var day;
+    if(radio == '1'){
+      day = 1;
+    }else if(radio == '2'){
+      day = 7;
+    }else if(radio == '3'){
+      day = 30;
+    }else if(radio == '4'){
+      day = 180;
+    }else if(radio == '5'){
+      day = 365;
     }
-    
-  };
-  const data = {
-    labels,
-    datasets: [
-      {
-        label: '',
-        data: coinData,
-        borderColor: color,
-        pointBackgroundColor: color,
-        pointRadius: 1,
-        outerGlowWidth: [5, 10, 15, 20, 25, 30, 0],
-			  outerGlowColor: 'rgb(255, 99, 132)',
-        tension: 0.4,
-        maintainAspectRatio: false,
-     },
-    ],
-  };
+    return day;
+  }
+
   
-  return <Line options={options} data={data}/>
+  return( 
+  
+    <div className="glass-black vertical-space" >
+              <div style={{display: "flex",padding:"1em"}}>
+                <div style={{flex: "0 50%"}}>
+                  <p>Your Portfolio</p>
+
+                  <h2  >
+                    $12,993
+                  </h2>
+                </div>
+                  <div style={{flex: "0 50%", display:"flex", alignContent:"center", height: "2.5em",  position:"absolute",right: "2em", top:"2.5em"}}>
+                  <ButtonGroup  >
+        {radios.map((radio, idx) => (
+          <ToggleButton
+            key={idx}
+            id={`radio-${idx}`}
+            type="radio"
+            variant='outline-dark'
+            name="radio"
+            value={radio.value}
+            checked={radioValue === radio.value}
+            onChange={(e) => {setRadioValue(e.currentTarget.value)}}
+          >
+            {radio.name}
+          </ToggleButton>
+        ))}
+      </ButtonGroup>
+                  </div>
+
+              </div>
+              <hr></hr>
+
+              <div style={{height:"30vh", width: "98%", padding: "1em"}}>
+                 <Graph id={'bitcoin'}  type = 'coin' days={days} />
+              </div>
+
+              
+            </div>
+
+  )
 }

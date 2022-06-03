@@ -4,8 +4,6 @@ import useIsMounted from "../useIsMounted";
 import { useParams } from "react-router-dom";
 import {
   Container,
-  Button,
-  Form,
   Col,
   Row,
   ButtonGroup,
@@ -14,9 +12,9 @@ import {
 import NavBar from "./components/Nav";
 import DashNav from "./components/DashNav";
 import { Graph } from "./components/Graph";
-import CoinInfo from "./components/CoinInfo";
 import axios from "axios";
 import { SuitHeart, SuitHeartFill, PlusCircle, CheckCircleFill } from "../assets/Icons";
+import Actions from "./components/Actions";
 
 function Coin() {
   const { name } = useParams();
@@ -90,11 +88,15 @@ function Coin() {
       }else{
         setFavorite(false)
       }
+      if(data.widgets.includes(name)){
+        setWidget(true)
+      }else{
+        setWidget(false)
+      }
     } else {
       alert(data.error);
     }
   }
- 
 
   async function toggleFavorite() {
     const req = await fetch("http://localhost:3001/api/favorite", {
@@ -111,13 +113,30 @@ function Coin() {
     const data = await req.json();
     if (data.status === "ok") {
       setFavorite(!favorite)
+      populateFavorite()
     } else {
       alert(data.error);
     }
   }
 
-  function toggleWidget(){
+  async function toggleWidget() {
+    const req = await fetch("http://localhost:3001/api/widget", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        widgets: name,
+      }),
+    });
 
+    const data = await req.json();
+    if (data.status === "ok") {
+      setWidget(!widget)
+    } else {
+      alert(data.error);
+    }
   }
   useEffect(() => {
     if (isMounted.current) {
@@ -130,12 +149,12 @@ function Coin() {
     <div className="Coin">
       <NavBar auth={true}></NavBar>
       <Container style={{ width: "100vw" }}>
-        <Row style={{ width: "100vw" }}>
+        <Row style={{ width: "98vw" }}>
           <Col lg={2} className="DashNav">
             <DashNav loc="explore"></DashNav>
           </Col>
 
-          <Col lg={6}>
+          <Col lg={7} className='content'>
             <div className="glass-black vertical-space">
               <div
                 style={{
@@ -154,13 +173,14 @@ function Coin() {
                         padding: "0 .3em 0 0",
                       }}
                       src={icon}
+                      alt={name + " logo."}
                     ></img>
                     {name}
                   </h1>
                   <h3 className="d-inline text-grey">{symbol.toUpperCase()}</h3>
                   <h3 className="d-inline text-white" style={{position: "absolute", right: "1em"}}>  
                      <button className="btn text-light" onClick={toggleFavorite}><Favorite favorite = {favorite}></Favorite></button> 
-                     <button className="btn text-light" onClick={() => {setWidget(!widget)}}> <WidgetBtn widget ={widget}/></button>
+                     <button className="btn text-light" onClick={() => {toggleWidget()}}> <WidgetBtn widget ={widget}/></button>
                   </h3>
                   <div
                     style={{
@@ -202,20 +222,7 @@ function Coin() {
               <h3> Market Stats</h3>
             </div>
           </Col>
-          <Col lg={3}>
-            <div className="glass-black ">
-              <div className="glass-black">
-                <h3 style={{ padding: ".25em .5em" }}>Trade</h3>
-              </div>
-              ...
-            </div>
-            <div className="glass-black ">
-              <div className="glass-black">
-                <h3 style={{ padding: ".25em .5em" }}>Transactions</h3>
-              </div>
-              ...
-            </div>
-          </Col>
+          <Actions/>
         </Row>
       </Container>
     </div>

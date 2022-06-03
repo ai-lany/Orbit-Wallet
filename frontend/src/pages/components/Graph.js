@@ -5,7 +5,6 @@ import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 import useIsMounted from '../../useIsMounted';
 import 'chartjs-plugin-style';
-import { premultiplyRgba, rgb2hex } from '@pixi/utils';
 
 const label = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -13,22 +12,23 @@ const label = ['January', 'February', 'March', 'April', 'May', 'June', 'July', '
 
 export function Graph(props) {
   const isMounted = useIsMounted();
-  const [coinData, setCoinData] = useState([])
-  const [labels, setLabels] = useState([])
+  const [coinData, setCoinData] = useState([]);
+  const [labels, setLabels] = useState([]);
   const change = props.change;
   var color;
   
-  if(props.type == "portfolio" || props.type == "coin" ){
+  if(props.type == "coin" ){
     color = "pink";
   }else{
     if (change > 0){
-      color = "#52f268";
+      color = "#9cd450";
     }else{
-      color = "#f25252";
+      color = "#f15977";
     }
   }
-  
 
+  
+  
   useEffect(() => {
     if (isMounted.current){getInfo();}
   },[]);
@@ -43,7 +43,8 @@ export function Graph(props) {
   }
 
   const getInfo = () => {
-    axios.get("https://api.coingecko.com/api/v3/coins/" + (props.id).toLowerCase() + "/market_chart?vs_currency=usd&days=1")
+  
+    axios.get("https://api.coingecko.com/api/v3/coins/" + (props.id).toLowerCase() + "/market_chart?vs_currency=usd&days=" +'1')
     .then(response => {
         var dayChart = response.data.prices
         if (isMounted.current){
@@ -60,19 +61,7 @@ export function Graph(props) {
 
 
   
-    /*const determineTimeFormat = () => {
-      switch (timeFormat) {
-        case "24h":
-          return day;
-        case "7d":
-          return week;
-        case "1y":
-          return year;
-        default:
-          return day;
-      }
-    };*/
-
+    
   
 
 

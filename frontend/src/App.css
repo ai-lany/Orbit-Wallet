@@ -88,7 +88,7 @@ a{
 .Widget{
     color: rgb(203, 203, 203);
     height: 11em;
-    width: fit-content;
+    width: 100%;
     border-radius: 8px;
     margin: 1em;
     display: inline-block;
@@ -124,8 +124,6 @@ hr{
     display: inline-flex;
 }
 
-
-
 .price{
     display: inline;
 
@@ -141,21 +139,20 @@ hr{
 }
 
 .coin-name{
-    
-    line-height: .5em;
+    font-size: medium;
+    line-height: 1em;
     position: relative;
     top:.5em;
+    color:rgb(214, 214, 214)
 }
 
 .Widget img{
     position: relative;
     bottom: 0.4em;
     padding: 8px;
+    height: 3.5em
 }
 
-.navbar-brand{
-    padding: 0 1em;
-}
 
 .navbar-toggler{
     border: none!important;
@@ -209,68 +206,6 @@ list-style: none;
 
 }
 
-@media (min-width: 992px) {
-
-    #landing-widget{
-        position:relative;
-        top: min(50vh, 40vw);
-        right: 40%;
-        padding: 0 !important;
-        z-index: 10;
-    }
-
-    .login-buttons{
-        position: absolute;
-        right: 10vw;
-        width: 12em;
-        display: flex;
-    }
-    .nav-middle{
-        display: flex;
-        position: relative;
-        right: max(2vw, 23%);
-    }
-    .navbar-brand{
-        padding-left: 9vw!important;
-    }
-
-}
-@media (max-width: 991px) {
-
-    .navbar-collapse{
-        width: min(300px, 50vw);
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 3.48em 0 0!important;
-        float: right;
-        background: rgba(0, 0, 0, 0.5);
-        border-radius:12px;
-        box-shadow: var(--shadow-elevation-medium);
-        border: 1px solid rgba(0, 0, 0, 0.27);
-        z-index: 11;
-    }
-    .navbar-nav .nav-link {
-        border:none;
-        background: none !important;
-        width: 100%!important;
-        z-index: 11;
-    }
-
-    .nav-link{
-        z-index: 11;
-    }
-    .signup-nav{
-        color:rgb(255, 133, 163)!important;
-    }
-    .navbar-toggler{
-        z-index: 100;
-    }
-
-
-    
-
-}
 
 
 .Login,.Signup{
@@ -287,22 +222,10 @@ list-style: none;
     z-index: 100 !important;
 }
 .heading span{
-    color: rgb(224, 0, 56);
+    color: rgb(223, 255, 152);
     font-weight: 500;
     z-index: 100 !important;
-
-    background: -webkit-linear-gradient(left, #f99696, #ffd664, #86f5bb, #8469ef, #f99696);
-    background-size: 2000px 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-animation-duration: 7s;
-          animation-duration: 7s;
-  -webkit-animation-name: animationgradienttitle;
-          animation-name: animationgradienttitle;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+    font-style: italic;
 
 }
 
@@ -458,10 +381,10 @@ list-style: none;
 }
 
 .graph-container{
-    width: 15em !important;
-    height: 7.5em !important;
+    padding: 0 .5em;
+    width: 100%!important;
+    height: 5em !important;
     position: relative;
-    bottom: 1em;
 }
 
 
@@ -514,10 +437,14 @@ list-style: none;
 
 
 
-.Dashboard .container, .Explore .container{
+.Dashboard .container, .Explore .container, .Coin .container{
     margin-top: 1em!important;
+    width: 100vw !important;
 }
 
+.content{
+    padding: 0 2em !important;
+}
 
 
 /* BG BLUR */
@@ -573,9 +500,9 @@ canvas{
 }
 
 .dash-nav svg{
-    margin: 0 .4em  .2em 0!important;
+    margin: 0 .4em  .25em 0!important;
 }
-.DashNav{
-    margin: 0 1em!important;
-    width: 15em !important;
+
+.portfolio-graph{
+    z-index: 100;
 }

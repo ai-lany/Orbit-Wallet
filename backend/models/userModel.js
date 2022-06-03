@@ -29,6 +29,9 @@ const userSchema = new mongoose.Schema(
         },
         watchlist: {
             type: Array,
+        },
+        widgets: {
+            type: Array,
         }
     },
     { collection: 'users'}

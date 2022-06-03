@@ -95,9 +95,9 @@ function Info(props) {
           setMarketCap(marketCap)])
           
           if (change > 0) {
-            setColor("#52f268");
+            setColor("#9cd450");
           } else {
-            setColor("#f25252");
+            setColor("#F15977");
           }
         }
       })

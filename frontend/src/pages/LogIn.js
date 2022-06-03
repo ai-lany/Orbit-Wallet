@@ -1,6 +1,5 @@
 import "../App.css";
-import React, { useState, useEffect } from "react";
-import useIsMounted from "../useIsMounted";
+import React, { useState } from "react";
 import { Container, Button, Form } from "react-bootstrap";
 
 function Login(props) {

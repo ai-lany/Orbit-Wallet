@@ -40,6 +40,7 @@ app.listen(PORT, function(){
 
 
 
+
 app.post('/api/register', async (req, res) => {
   console.log(req.body)
 
@@ -101,7 +102,22 @@ app.get('/api/favorite', async (req, res) => {
 		const email = decoded.email
 		const user = await User.findOne({ email: email })
 
-		return res.json({ status: 'ok', watchlist: user.watchlist })
+		return res.json({ status: 'ok', watchlist: user.watchlist, widgets: user.widgets})
+	} catch (error) {
+		console.log(error)
+		res.json({ status: 'error', error: 'invalid token' })
+	}
+})
+
+app.get('/api/widget', async (req, res) => {
+	const token = req.headers['x-access-token']
+
+	try {
+		const decoded = jwt.verify(token, 'secretkey123')
+		const email = decoded.email
+		const user = await User.findOne({ email: email })
+
+		return res.json({ status: 'ok', widgets: user.widgets })
 	} catch (error) {
 		console.log(error)
 		res.json({ status: 'error', error: 'invalid token' })
@@ -133,7 +149,35 @@ app.post('/api/favorite', async (req, res) => {
 		console.log(error)
 		res.json({ status: 'error', error: 'invalid token' })
 	}
-})
+});
+
+
+
+app.post('/api/widget', async (req, res) => {
+	const token = req.headers['x-access-token']
+
+	try {
+		const decoded = jwt.verify(token, 'secretkey123')
+		const email = decoded.email
+    const user = await User.findOne({ email: email })
+	if(user.widgets.includes(req.body.widgets)){
+      await User.updateOne(
+        { email: email },
+        { $pull: { widgets: req.body.widgets } }
+      )
+    }else{
+      await User.updateOne(
+        { email: email },
+        { $push: { widgets: req.body.widgets } }
+      )
+    }
+
+		return res.json({ status: 'ok' , watchlist: user.widgets})
+	} catch (error) {
+		console.log(error)
+		res.json({ status: 'error', error: 'invalid token' })
+	}
+});
 
 
 app.get("*", function (request, response) {

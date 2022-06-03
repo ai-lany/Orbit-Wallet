@@ -13,7 +13,7 @@ export default function DashNav(props){
 
 
     return(
-        <div  className="d-none d-lg-block dash-nav w-100 ">
+        <div  className="d-none d-lg-block dash-nav">
             <ul>
               <li>
               <Button className={` ${active === "dashboard" ? 'dashnav-btn w-100 border-none btn-purp' : ' dashnav-btn btn bg-transparent border-none w-100'}`} href="/dashboard" ><Home></Home> Dashboard</Button>

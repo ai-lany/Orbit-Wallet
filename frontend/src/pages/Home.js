@@ -1,22 +1,28 @@
 import "../App.css";
-import React, { useState, useEffect } from "react";
-import useIsMounted from "../useIsMounted";
-import { Container, Row, Col, NavLink } from "react-bootstrap";
-import { Graph } from "./components/Graph";
+import React, { useEffect } from "react";
+import { Row, Col } from "react-bootstrap";
 import Widget from "./components/Widget";
-import SignUp from "./SignUp";
 import Eth from "./components/Eth";
 import CoinInfo from "./components/CoinInfo";
-import Arrows from "../assets/shape-71.svg";
 import NavBar from "./components/Nav";
-import Orb, {ColorPalette, Orb2} from "./components/Orb";
+import Orb, { ColorPalette, Orb2 } from "./components/Orb";
 import * as PIXI from "pixi.js";
 import { KawaseBlurFilter } from "@pixi/filter-kawase-blur";
 
 //Animations / Fancy Stuff:
 import { gsap, TweenMax, Linear } from "gsap";
+import jwtDecode from "jwt-decode";
+
 
 function Home(props) {
+
+  const token = localStorage.getItem("token");
+  if (token) {
+    const user = jwtDecode(token);
+    if (user) {
+      window.location.href = '/dashboard';
+    }
+  }
   useEffect(() => {
     gsap.fromTo(".heading", { x: -30 }, { x: 0, duration: 2 });
     gsap.fromTo(".heading", { opacity: 0 }, { opacity: 1, duration: 2 });
@@ -33,16 +39,16 @@ function Home(props) {
     const orbs = [];
     const colorPalette = new ColorPalette();
     for (let i = 0; i < 20; i++) {
-      if(i<10){
+      if (i < 10) {
         const orb = new Orb(colorPalette.randomColor());
         app.stage.addChild(orb.graphics);
         orbs.push(orb);
-      }else{
+      } else {
         const orb = new Orb2(colorPalette.randomColor());
         app.stage.addChild(orb.graphics);
         orbs.push(orb);
       }
-      
+
     }
     // Animate!
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -69,38 +75,17 @@ function Home(props) {
       <NavBar></NavBar>
       <div className="bg-blur"></div>
       <canvas class="orb-canvas"></canvas>
-      <Row style={{ height: "95vh", zIndex:"5" , width: "100vw", position: "absolute", top: "4em"}}>
+      <Row style={{ height: "95vh", zIndex: "5", width: "100vw", position: "absolute", top: "6em" }}>
         <Col lg={8}>
           <h1 style={{}} className="heading text-light d-inline-block">
-            Discover, trade, <br/>
-            and sell <span>trusted </span><br/>
-            <div
-              style={{
-                display: "inline",
-                height: "4.5rem",
-                width: "4.5rem",
-                overflow: "hidden",
-                backgroundImage: `url(${Arrows})`,
-              }}
-            ></div>
+            Discover, trade, <br />
+            and sell <span>trusted </span><br />
             <span> cryptocurrencies.</span>
           </h1>
         </Col>
-        <Col lg={4} className="d-inline-block">
-          <Eth></Eth>
-          <div
-            className="d-flex"
-            id="landing-widget"
-            style={{ justifyContent: "center"}}
-          >
-            {" "}
-            <Widget input="Ethereum" />
-          </div>
-        </Col>
+       
       </Row>
-      <div  style={{position:"absolute",top:"100vh", right:"18vw", width: "65%", margin: "0 auto" }}>
-        <CoinInfo count={5}></CoinInfo>
-      </div>
+      
     </div>
   );
 }

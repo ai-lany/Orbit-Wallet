@@ -48,10 +48,7 @@ function NavBar(props) {
         expand="lg"
       >
         <Navbar.Brand href="/" style={{ position: "relative", top: ".2em"}}>
-          <img
-            style={{ height: "2em", padding: "0 0 .3em" }}
-            src={Star}
-          ></img>
+          <Stars size={42}></Stars>
           Orbit
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav"  onClick={toggleNav}/>
@@ -96,8 +93,8 @@ function NavBar(props) {
         variant="dark"
         expand="lg"
       >
-        <Navbar.Brand  href="/dashboard">
-          <Stars></Stars>
+        <Navbar.Brand href="/dashboard" style={{padding: "0 2em"}} >
+          <Stars size={42}></Stars>
           Orbit
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={toggleNav}  />

@@ -56,7 +56,9 @@ h1,h2,h3,h4,h5,h6{
   background: rgb(169, 255, 195);
 }
 
+.navbar{
 
+}
 
 .center{
     display: flex;
@@ -110,7 +112,7 @@ h1,h2,h3,h4,h5,h6{
 
     .login-buttons{
         position: absolute;
-        right: 10vw;
+        right: 3em;
         width: 12em;
         display: flex;
     }
@@ -119,8 +121,8 @@ h1,h2,h3,h4,h5,h6{
         position: relative;
         right: max(2vw, 23%);
     }
-    .navbar-brand{
-        padding-left: 9vw!important;
+    .navbar-brand svg{
+      margin-bottom: 8px!important;
     }
 
 }
@@ -156,8 +158,6 @@ h1,h2,h3,h4,h5,h6{
         z-index: 100;
     }
 
-
-    
 
 }
 
@@ -240,16 +240,15 @@ h1,h2,h3,h4,h5,h6{
   }
 
 .btn-purp{
-    background: url('../../assets/holo_rainbow_1.png');
+    background: url('../../../public/assets/Background\ 8.jpg');
     background-size:100%;
     background-position: 20% ;
     border-radius: 6px;
     color:black  !important;
 }
 .btn-purp:hover{
-  background: url('../../assets/holo_rainbow_1.png');
+  background: url('../../../public/assets/Background\ 8.jpg');
   background-size:100%;
   background-position: 20% ;
-  border-radius: 6px;
-  color: black!important;
+  filter: brightness(1.2);
 }
