@@ -13,7 +13,7 @@ export default function Actions(props){
     }, [])
 
     async function populateWidget() {
-        const req = await fetch("https://orbit-wallet.herokuapp.com/api/widget", {
+        const req = await fetch("http://localhost:3001/api/widget", {
           method: "GET",
           headers: {
             "x-access-token": localStorage.getItem("token"),

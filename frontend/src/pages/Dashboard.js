@@ -36,7 +36,7 @@ function Dashboard() {
 
 
   async function populateWatchlist() {
-    const req = await fetch("https://orbit-wallet.herokuapp.com/api/favorite", {
+    const req = await fetch("http://localhost:3001/api/favorite", {
       method: "GET",
       headers: {
         "x-access-token": localStorage.getItem("token"),

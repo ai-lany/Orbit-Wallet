@@ -8,7 +8,7 @@ function Login(props) {
   const [password, setPassword] = useState('')
   async function loginUser(event){
     event.preventDefault();
-    const response = await fetch('https://orbit-wallet.herokuapp.com/api/login', {
+    const response = await fetch('http://localhost:3001/api/login', {
         
         method: 'POST',
         headers:{

@@ -1,4 +1,6 @@
 import React, { useEffect, useState} from 'react';
+import Chart from 'chart.js/auto';
+import{ChartData, ChartArea} from 'chart.js'
 import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 import useIsMounted from '../../useIsMounted';
@@ -12,7 +14,7 @@ export function Graph(props) {
   const change = props.change;
   var color;
   
-  if(props.type === "coin" ){
+  if(props.type == "coin" ){
     color = "pink";
   }else{
     if (change > 0){
