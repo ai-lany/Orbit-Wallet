@@ -8,7 +8,7 @@ const path = require('path')
 const mongoose = require('mongoose');
 const User = require('./models/userModel');
 require("dotenv").config()
-mongoose.connect(process.env.MONGODB_CONNECTION_STRING,
+mongoose.connect(process.env.MONGODB_URI,
 {
   useNewUrlParser: true,
   useUnifiedTopology: true,
