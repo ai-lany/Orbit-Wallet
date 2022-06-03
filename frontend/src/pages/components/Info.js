@@ -1,13 +1,11 @@
 import "../../App.css";
 import React, { useState, useEffect } from "react";
 import useIsMounted from "../../useIsMounted";
-import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { Graph } from "./Graph";
 import jwtDecode from "jwt-decode";
 import {SuitHeart, SuitHeartFill } from "../../assets/Icons";
 import { Link } from "react-router-dom";
-import Coin from "../Coin";
 
 
 function Info(props) {

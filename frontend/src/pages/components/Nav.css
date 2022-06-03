@@ -87,9 +87,10 @@ h1,h2,h3,h4,h5,h6{
 
 .nav-search{
   background: none;
-  border: solid 1px rgba(255, 255, 255, 0.145)!important;
+  outline: solid 1px rgba(255, 255, 255, 0.145)!important;
+  border:none !important;
   box-shadow: none !important;
-  border-radius: 8px;
+  border-radius: 4px;
   height: 2.5em;
   align-self: center;
   color: #fff;
@@ -98,6 +99,7 @@ h1,h2,h3,h4,h5,h6{
 .nav-search:focus{
   border:none !important;
   box-shadow: none !important;
+  outline:solid 1px rgba(255, 255, 255, 0.145)!important; ;
 }
 
 @media (min-width: 992px) {

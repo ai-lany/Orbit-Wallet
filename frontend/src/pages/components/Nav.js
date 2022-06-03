@@ -1,9 +1,8 @@
 import "./Nav.css";
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import { PersonFill, Search } from "react-bootstrap-icons";
-import Star from "../../assets/star.svg";
 import jwtDecode from "jwt-decode";
 import {Stars} from "../../assets/Icons"
 
@@ -15,7 +14,7 @@ function NavBar(props) {
 
 
   function toggleNav(){
-    if(toggle == 'd-none'){
+    if(toggle === 'd-none'){
       setToggle(' ')
     }else{
       setToggle('d-none')

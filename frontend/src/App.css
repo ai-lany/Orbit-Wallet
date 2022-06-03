@@ -63,9 +63,10 @@ p{
   background: rgb(169, 255, 195);
 }
 
-.search{
-    padding: 1em;
+.nav-search:focus{
+    border: none !important;
 }
+
 a{
     text-decoration: none;
 }

@@ -1,10 +1,7 @@
-import { React, useState, useEffect } from 'react'
+import { React } from 'react'
 import cryptoData from "../../data/ListData.js"
 import Widget from './Widget';
 import '../../App.css';
-import axios from 'axios';
-import useIsMounted from '../../useIsMounted.js';
-
 
 
 function CryptoList(props) {

@@ -1,33 +1,18 @@
 import React, { useEffect, useState} from 'react';
-import Chart from 'chart.js/auto';
-import{ChartData, ChartArea} from 'chart.js'
-import { Line } from 'react-chartjs-2';
-import axios from 'axios';
-import useIsMounted from '../../useIsMounted';
 import 'chartjs-plugin-style';
 import { ButtonGroup, ToggleButton } from 'react-bootstrap';
 import { Graph } from './Graph';
 
-const label = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-
 
 export default function Portfolio(props) {
-  const [coinData, setCoinData] = useState([]);
-  const [labels, setLabels] = useState([]);
   const [radioValue, setRadioValue] = useState('1');
-  const change = props.change;
   const [days, setDays] = useState('1')
-  var color="pink"
-  
-  
+
      useEffect(() => {
       setDays(getInfo(radioValue))
       console.log(days)
      });
 
-
-  
      const radios = [
       { name: '1D', value: '1' },
       { name: '7D', value: '2' },
@@ -39,15 +24,15 @@ export default function Portfolio(props) {
 
   const getInfo = (radio) => {
     var day;
-    if(radio == '1'){
+    if(radio === '1'){
       day = 1;
-    }else if(radio == '2'){
+    }else if(radio === '2'){
       day = 7;
-    }else if(radio == '3'){
+    }else if(radio === '3'){
       day = 30;
-    }else if(radio == '4'){
+    }else if(radio === '4'){
       day = 180;
-    }else if(radio == '5'){
+    }else if(radio === '5'){
       day = 365;
     }
     return day;
