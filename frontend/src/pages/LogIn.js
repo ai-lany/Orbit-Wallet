@@ -33,7 +33,8 @@ function Login(props) {
 
 
   return (
-    <div className="Login">
+    <div>
+       <div className="Login">
       <div className="">
         <h1 className="center">Log In</h1>
         <Container className="glass login-container center">
@@ -53,7 +54,6 @@ function Login(props) {
                 placeholder="Password"
                 value={password}
                 onChange = {(e) => setPassword(e.target.value)}
-
               />
               <Form.Check type="checkbox" label="Remember me next time" />
               <Button variant="dark" className="w-100 login " type="submit">
@@ -63,7 +63,18 @@ function Login(props) {
           </Form>
         </Container>
       </div>
+      
     </div>
+    <div style={{display: "flex", justifyContent:"center", position: "relative", top:"70vh"}}>
+    <div style={{background: "black", color: "grey", width:"16%", textAlign: "center", padding: ".5em", border: "1px solid grey", borderRadius:"8px"}}>
+      Email: testing@orbit.com <br></br>
+      Password: password
+    </div>
+  
+    </div>
+    
+    </div>
+   
   );
 }
 

@@ -63,9 +63,7 @@ p{
   background: rgb(169, 255, 195);
 }
 
-.nav-search:focus{
-    border: none !important;
-}
+
 
 a{
     text-decoration: none;
@@ -305,9 +303,14 @@ list-style: none;
     border: none;
     color: white;
 }
-
 .form-control::placeholder{
     color: rgb(102, 102, 102);
+}
+.form-check-label{
+    padding: 0 .4em;
+    margin-bottom: .4em!important;
+    position: relative;
+    bottom: 4px;
 }
 
 #navbar{

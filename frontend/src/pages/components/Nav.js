@@ -12,7 +12,6 @@ function NavBar(props) {
   const [user, setUser] = useState({})
   const [toggle, setToggle] = useState('');
 
-
   function toggleNav(){
     if(toggle === 'd-none'){
       setToggle(' ')
@@ -40,7 +39,7 @@ function NavBar(props) {
   if (!auth) {
     return (
       <Navbar
-        style={{ height: "fit-content" }}
+        style={{ height: "fit-content", width: "88vw", paddingLeft: "6vw"}}
         id="navbar"
         bg="transparent"
         variant="dark"
@@ -56,7 +55,7 @@ function NavBar(props) {
             <div className="nav-middle">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#link">Features</Nav.Link>
-          <div className="d-flex">
+          <div className="d-flex nav-item">
           <input type="text" className="nav-search"></input><Search style={{position: "relative", right: "2em", alignSelf:"center"}} size={14} color="white"></Search>
           </div>
             </div>
