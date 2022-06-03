@@ -19,14 +19,6 @@ app.use(express.static(path.resolve(__dirname, "../frontend/build")));
 const mongoose = require('mongoose');
 const User = require('./models/userModel');
 require("dotenv").config()
-mongoose.connect(process.env.MONGODB_CONNECTION_STRING,
-{
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true 
-}
-).then(() => console.log("MongoDB has been started.")).catch((err) => console.log(err))
-
 
 
 // Handle GET requests to /api route
@@ -64,33 +56,46 @@ app.post('/api/register', async (req, res) => {
 
 
 app.post('/api/login', async (req, res) => {
-	const user = await User.findOne({
-		email: req.body.email,
-	})
+	mongoose.connect(process.env.MONGODB_CONNECTION_STRING,
+		{
+		  useNewUrlParser: true,
+		  useUnifiedTopology: true,
+		  useCreateIndex: true 
+		}
+		).then(async() => {
+			console.log("MongoDB has been started.")
+			const user = await User.findOne({
+				email: req.body.email,
+			})
+		
+			if (!user) {
+				return { status: 'error', error: 'Invalid login' }
+			}
+		
+			const isPasswordValid = await bcrypt.compare(
+				req.body.password,
+				user.password
+			)
+		
+			if (isPasswordValid) {
+				const token = jwt.sign(
+					{
+						firstName: user.firstName,
+				lastName: user.lastName,
+						email: user.email,
+					},
+					'secretkey123'
+				)
+		
+				return res.json({ status: 'ok', user: token })
+			} else {
+				return res.json({ status: 'error', user: false })
+			}
+		
+		}).catch((err) => console.log(err))
+		
+		
 
-	if (!user) {
-		return { status: 'error', error: 'Invalid login' }
-	}
-
-	const isPasswordValid = await bcrypt.compare(
-		req.body.password,
-		user.password
-	)
-
-	if (isPasswordValid) {
-		const token = jwt.sign(
-			{
-				firstName: user.firstName,
-        lastName: user.lastName,
-				email: user.email,
-			},
-			'secretkey123'
-		)
-
-		return res.json({ status: 'ok', user: token })
-	} else {
-		return res.json({ status: 'error', user: false })
-	}
 })
 
 
